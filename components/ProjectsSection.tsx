@@ -29,7 +29,7 @@ const ProjectsSection = () => {
           transition={{ delay: 0.1 }}
           className="text-lg text-light-text-secondary dark:text-text-secondary mb-12 max-w-3xl mx-auto"
         >
-          Some of my recent work showcasing full-stack development and AI integration. I'm passionate about building scalable and user-friendly web applications.
+          Here are some of the projects I&apos;m proud to have worked on. Each one represents a challenge I was excited to tackle.
         </motion.p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

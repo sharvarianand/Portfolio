@@ -3,12 +3,23 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
+interface Circle {
+  id: number;
+  left: number;
+  top: number;
+  background: string;
+  x: number;
+  y: number;
+  duration: number;
+  delay: number;
+}
+
 const BackgroundCircles = () => {
-  const [circles, setCircles] = useState<any[]>([]);
+  const [circles, setCircles] = useState<Circle[]>([]);
 
   useEffect(() => {
     const colors = ['#38bdf8', '#6366f1', '#7c3aed', '#0ea5e9'];
-    const newCircles = Array.from({ length: 25 }).map(() => {
+    const newCircles = Array.from({ length: 25 }).map((_, i) => {
       const left = Math.random() * 100;
       const top = Math.random() * 100;
       const background = colors[Math.floor(Math.random() * colors.length)];
@@ -16,7 +27,7 @@ const BackgroundCircles = () => {
       const y = Math.random() * 40 - 20;
       const duration = 5 + Math.random() * 10;
       const delay = Math.random() * 5;
-      return { left, top, background, x, y, duration, delay };
+      return { id: i, left, top, background, x, y, duration, delay };
     });
     setCircles(newCircles);
   }, []);
@@ -25,9 +36,9 @@ const BackgroundCircles = () => {
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-      {circles.map((circle, i) => (
+      {circles.map((circle) => (
         <motion.div
-          key={i}
+          key={circle.id}
           className="absolute w-2 h-2 rounded-full"
           style={{
             left: `${circle.left}%`,

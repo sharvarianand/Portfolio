@@ -3,13 +3,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const ContactSection = () => {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.5 }
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted');
@@ -25,16 +18,16 @@ const ContactSection = () => {
         viewport={{ once: true }}
         className="max-w-6xl mx-auto px-4 w-full"
       >
-        <motion.h2 {...fadeInUp} className="font-heading text-3xl md:text-4xl gradient-text mb-4 relative">
+        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="font-heading text-3xl md:text-4xl gradient-text mb-4 relative">
           Get In Touch
         </motion.h2>
 
-        <motion.p {...fadeInUp} transition={{ delay: 0.1 }} className="text-light-text-secondary dark:text-text-secondary max-w-3xl mx-auto mb-12 relative">
-          Have a project in mind or want to collaborate? I'm always open to discussing new opportunities and creative ideas.
+        <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} className="text-light-text-secondary dark:text-text-secondary max-w-3xl mx-auto mb-12 relative">
+          Have a project in mind or want to collaborate? I&apos;m always open to discussing new opportunities and creative ideas.
         </motion.p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="text-left">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} className="text-left">
             <h3 className="font-heading text-2xl text-light-text-primary dark:text-text-primary mb-6">Contact Information</h3>
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3">
@@ -70,7 +63,7 @@ const ContactSection = () => {
             </div>
           </motion.div>
 
-          <motion.form {...fadeInUp} transition={{ delay: 0.3 }} onSubmit={handleSubmit} className="bg-light-surface dark:bg-surface backdrop-blur-lg rounded-2xl p-8 shadow-lg flex flex-col gap-6 border border-light-border dark:border-border">
+          <motion.form initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }} onSubmit={handleSubmit} className="bg-light-surface dark:bg-surface backdrop-blur-lg rounded-2xl p-8 shadow-lg flex flex-col gap-6 border border-light-border dark:border-border">
             <h3 className="font-heading text-2xl text-light-text-primary dark:text-text-primary mb-4">Send Me a Message</h3>
             <div className="relative group">
               <input type="text" id="name" name="name" required className="peer w-full bg-transparent border-b-2 border-light-primary/30 dark:border-primary/30 focus:border-light-primary dark:focus:border-primary outline-none py-2 px-1 text-light-text-primary dark:text-text-primary placeholder-transparent transition-all" placeholder="Name" />

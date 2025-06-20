@@ -4,14 +4,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
-  @apply bg-light-background text-light-text-primary dark:bg-background dark:text-text-primary transition-colors duration-300;
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-light-background text-light-text-primary dark:bg-background dark:text-text-primary;
+  }
 }
 
 /* Custom scrollbar */
@@ -37,10 +37,7 @@ body {
 
 /* Gradient text needs to be defined for light/dark modes */
 .gradient-text {
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  @apply bg-gradient-light-primary dark:bg-gradient-primary;
+  @apply bg-gradient-to-r from-sky-400 via-purple-500 to-fuchsia-500 text-transparent bg-clip-text;
 }
 
 .font-heading {

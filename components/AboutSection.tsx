@@ -5,17 +5,7 @@ import { skills } from '../data/skills';
 import Image from 'next/image';
 import { FaMapMarkerAlt, FaEnvelope, FaFileAlt } from 'react-icons/fa';
 
-const techBadges = [
-  'React', 'Python', 'FastAPI', 'Next.js', 'Tailwind', 'AI/ML'
-];
-
 const AboutSection = () => {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-  };
-
   return (
     <section id="about" className="py-24 max-w-6xl mx-auto px-4">
       <div className="relative bg-white/80 dark:bg-slate-900/60 backdrop-blur-xl rounded-2xl shadow-lg p-8 flex flex-col md:flex-row items-center md:items-start gap-10 border border-slate-200 dark:border-slate-700">
