@@ -1,6 +1,6 @@
 # Sharvari Bhondekar Portfolio
 
-A highly impressive, professional portfolio website for Sharvari Bhondekar, aspiring SDE and AI/Data Science enthusiast.
+Professional portfolio website for Sharvari Bhondekar, aspiring SDE and AI/Data Science enthusiast.
 
 ## 🚀 Tech Stack
 - **Framework:** Next.js (App Router, TypeScript)
