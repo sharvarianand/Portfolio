@@ -1,0 +1,54 @@
+'use client';
+import React from 'react';
+import { projects } from '../data/projects';
+import ProjectCard from './ProjectCard';
+import { motion } from 'framer-motion';
+
+const ProjectsSection = () => {
+  return (
+    <section id="projects" className="py-24 px-4 flex flex-col items-center text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="max-w-6xl mx-auto w-full"
+      >
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-heading text-3xl md:text-4xl gradient-text mb-4"
+        >
+          Featured Projects
+        </motion.h2>
+        
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="text-lg text-light-text-secondary dark:text-text-secondary mb-12 max-w-3xl mx-auto"
+        >
+          Some of my recent work showcasing full-stack development and AI integration. I'm passionate about building scalable and user-friendly web applications.
+        </motion.p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="h-full"
+            >
+              <ProjectCard {...project} />
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </section>
+  );
+};
+
+export default ProjectsSection; 
