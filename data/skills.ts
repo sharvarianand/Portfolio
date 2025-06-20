@@ -7,5 +7,5 @@ export const skills = [
   { name: 'MongoDB', value: 80 },
   { name: 'Git', value: 90 },
   { name: 'MySQL', value: 85 },
-  { name: 'Docker', value: 60 },
+  { name: 'Next.js', value: 80 },
 ]; 
