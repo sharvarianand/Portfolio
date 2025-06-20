@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const HeroSection = () => {
   return (
-    <section id="home" className="min-h-screen relative flex flex-col justify-center items-center text-center gap-6 pt-24 overflow-hidden">
+    <section id="home" className="min-h-screen relative flex flex-col justify-center items-center text-center gap-6 pt-16 -mt-6 overflow-hidden">
       {/* Background gradient circles */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-light-primary/10 dark:bg-primary/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-light-secondary/10 dark:bg-secondary/10 rounded-full blur-3xl animate-pulse delay-1000" />
@@ -30,8 +30,8 @@ const HeroSection = () => {
         className="relative"
       >
         <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
-          <span className="text-light-text-primary dark:text-text-primary">Hi, I'm </span>
-          <span className="gradient-text">Sharvari Bhondekar</span>
+          <span className="text-light-text-primary dark:text-text-primary block">Hi, I'm</span>
+          <span className="bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 text-transparent bg-clip-text block">Sharvari Bhondekar</span>
         </h1>
       </motion.div>
 
@@ -50,7 +50,7 @@ const HeroSection = () => {
         transition={{ duration: 1.2 }}
         className="relative text-lg md:text-xl max-w-2xl lg:max-w-4xl text-light-text-secondary dark:text-text-secondary mb-8 px-4"
       >
-        I'm passionate about crafting high-quality software, solving real-world problems, and continuously learning new technologies. My goal is to create impactful products that make a difference.
+        I'm passionate about crafting high-quality software, solving real-world problems, and continuously learning new technologies specially in the field of Artificial Intelligence. My goal is to create impactful products that make a difference.
       </motion.p>
 
       <motion.div
@@ -60,8 +60,7 @@ const HeroSection = () => {
         className="relative flex flex-col sm:flex-row gap-4 justify-center items-center"
       >
         <a
-          href="/mock_resume.pdf"
-          download
+          href="#projects"
           className="px-8 py-4 rounded-full font-heading bg-gradient-light-primary dark:bg-gradient-primary text-white shadow-lg hover:shadow-primary/50 hover:scale-105 transition-all duration-300 font-semibold"
         >
           View Projects

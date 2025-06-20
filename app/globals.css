@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 html {
   scroll-behavior: smooth;
@@ -44,7 +44,7 @@ body {
 }
 
 .font-heading {
-  font-family: 'Poppins', 'Space Grotesk', sans-serif;
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
 }
 
 .font-body {
