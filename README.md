@@ -1,4 +1,4 @@
-# Sharvari Bhondekar Portfolio
+# Sharvari Bhondekar Portfolio 
 
 Professional portfolio website for Sharvari Bhondekar, aspiring SDE and AI/Data Science enthusiast.
 
@@ -9,7 +9,7 @@ Professional portfolio website for Sharvari Bhondekar, aspiring SDE and AI/Data 
 - **Icons:** Heroicons
 - **UI Components:** Headless UI
 - **Fonts:** Poppins, Space Grotesk, Inter (Google Fonts)
-- **Deployment:** Vercel
+- **Deployment:** Netlify
 
 ## 📦 Features
 - Dark/Light mode toggle
