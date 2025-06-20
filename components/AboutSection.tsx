@@ -66,28 +66,31 @@ const AboutSection = () => {
       </div>
       {/* Tech Stack Section */}
       <div className="w-full max-w-6xl px-4 mt-12">
-        <h3 className="text-2xl font-heading text-light-text-primary dark:text-text-primary mb-8">Technologies I work with</h3>
+        <h3 className="text-3xl md:text-4xl font-heading font-extrabold mb-8 text-left">
+          <span className="block bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500 text-transparent bg-clip-text drop-shadow-lg">Tech I Use</span>
+          <span className="block bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500 text-transparent bg-clip-text drop-shadow-lg">to Build Scalable Solutions</span>
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((skill, index) => (
             <motion.div
-              key={skill}
+              key={skill.name}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-light-surface dark:bg-surface rounded-xl p-6 border border-light-border dark:border-border hover:border-light-primary/50 dark:hover:border-primary/50 transition-all duration-300"
+              className="bg-white/80 dark:bg-slate-900/60 rounded-xl p-6 border border-slate-200 dark:border-border hover:border-sky-400 dark:hover:border-primary/50 transition-all duration-300 shadow-md"
             >
               <div className="flex justify-between items-center mb-3">
-                <span className="text-light-text-primary dark:text-text-primary font-medium text-lg">{skill}</span>
-                <span className="text-light-primary dark:text-primary font-semibold">85%</span>
+                <span className="text-slate-800 dark:text-slate-100 font-semibold text-lg">{skill.name}</span>
+                <span className="text-sky-600 dark:text-sky-400 font-bold">{skill.value}%</span>
               </div>
-              <div className="w-full h-2 bg-light-border dark:bg-border rounded-full overflow-hidden">
+              <div className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
-                  whileInView={{ width: '85%' }}
+                  whileInView={{ width: `${skill.value}%` }}
                   transition={{ duration: 1, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="h-full bg-gradient-light-primary dark:bg-gradient-primary rounded-full"
+                  className="h-full bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 rounded-full"
                 />
               </div>
             </motion.div>
