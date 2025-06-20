@@ -72,60 +72,6 @@ const HeroSection = () => {
           Contact Me
         </a>
       </motion.div>
-
-      {/* Social links */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.6 }}
-        className="relative flex gap-6 mt-8"
-      >
-        <a
-          href="https://github.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3 rounded-full bg-light-surface dark:bg-surface border border-light-border dark:border-border hover:bg-light-primary/10 dark:hover:bg-primary/10 hover:border-light-primary dark:hover:border-primary transition-all duration-300"
-        >
-          <span className="text-2xl">📱</span>
-        </a>
-        <a
-          href="https://linkedin.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3 rounded-full bg-light-surface dark:bg-surface border border-light-border dark:border-border hover:bg-light-primary/10 dark:hover:bg-primary/10 hover:border-light-primary dark:hover:border-primary transition-all duration-300"
-        >
-          <span className="text-2xl">💼</span>
-        </a>
-        <a
-          href="mailto:sharvari@example.com"
-          className="p-3 rounded-full bg-light-surface dark:bg-surface border border-light-border dark:border-border hover:bg-light-primary/10 dark:hover:bg-primary/10 hover:border-light-primary dark:hover:border-primary transition-all duration-300"
-        >
-          <span className="text-2xl">✉️</span>
-        </a>
-      </motion.div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{
-            y: [0, 10, 0],
-          }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-          className="w-6 h-10 rounded-full border-2 border-light-primary dark:border-primary p-1"
-        >
-          <div className="w-1.5 h-1.5 bg-light-primary dark:bg-primary rounded-full mx-auto" />
-        </motion.div>
-        <p className="text-light-text-muted dark:text-text-muted text-sm mt-2">SCROLL DOWN</p>
-      </motion.div>
     </section>
   );
 };

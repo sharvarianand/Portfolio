@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import ScrollIndicator from "../components/ScrollIndicator";
 import { ThemeProvider } from "./ThemeProvider";
 import BackgroundCircles from "../components/BackgroundCircles";
+import SocialsFloat from '../components/SocialsFloat';
 
 export const metadata: Metadata = {
   title: "Sharvari Bhondekar | Software Developer",
@@ -32,6 +33,7 @@ export default function RootLayout({
           <Navbar />
           <main className="min-h-screen relative z-10">{children}</main>
           <Footer />
+          <SocialsFloat />
         </ThemeProvider>
       </body>
     </html>
