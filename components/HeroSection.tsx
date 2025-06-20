@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Globe from './Globe';
 import { useTheme } from '../app/ThemeProvider';
 import SocialsFloat from './SocialsFloat';
-import { FaArrowDown } from 'react-icons/fa';
 
 const HeroSection = () => {
   const { theme } = useTheme();
@@ -81,21 +80,21 @@ const HeroSection = () => {
         </motion.div>
       </div>
       <SocialsFloat />
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
-        <a href="#about" aria-label="Scroll down">
+      <a href="#about" aria-label="Scroll down" className="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center group">
+        <div className="w-6 h-10 rounded-full border-2 border-light-text-secondary dark:border-text-secondary flex items-start justify-center p-1">
           <motion.div
-            animate={{ y: [0, 10, 0] }}
+            className="w-1 h-2 rounded-full bg-light-text-secondary dark:bg-text-secondary"
+            animate={{ y: [4, 20, 4] }}
             transition={{
-              duration: 1.5,
+              duration: 2,
               repeat: Infinity,
               repeatType: 'loop',
+              ease: 'easeInOut'
             }}
-            className="text-light-text-secondary dark:text-text-secondary hover:text-light-text-primary dark:hover:text-text-primary transition-colors"
-          >
-            <FaArrowDown size={24} />
-          </motion.div>
-        </a>
-      </div>
+          />
+        </div>
+        <span className="mt-2 text-sm text-light-text-secondary dark:text-text-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300">Scroll Down</span>
+      </a>
     </section>
   );
 };
