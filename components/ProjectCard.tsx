@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import { FaGithub } from 'react-icons/fa';
+import Image from 'next/image';
 
 interface ProjectCardProps {
   name: string;
@@ -24,9 +25,11 @@ const ProjectCard = ({ name, description, tags, github, demo, image }: ProjectCa
       {/* Project Image */}
       <div className="relative h-40 overflow-hidden">
         {image ? (
-          <img 
+          <Image 
             src={image} 
-            alt={name} 
+            alt={name}
+            width={400}
+            height={300}
             className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 p-4"
           />
         ) : (

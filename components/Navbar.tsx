@@ -12,7 +12,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'education', 'experience', 'contact'];
+      const sections = ['home', 'about', 'projects', 'education', 'experience', 'achievements', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       sections.forEach((section) => {

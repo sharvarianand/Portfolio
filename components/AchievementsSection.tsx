@@ -2,6 +2,7 @@
 import React from 'react';
 import { achievements } from '../data/achievements';
 import { motion } from 'framer-motion';
+import { FaCertificate } from 'react-icons/fa';
 
 const AchievementsSection = () => {
   return (
@@ -54,6 +55,40 @@ const AchievementsSection = () => {
             </motion.div>
           ))}
         </div>
+        
+        {/* Certificates CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="mt-24"
+        >
+          <div className="relative group p-8 rounded-2xl bg-light-surface dark:bg-surface border border-light-border dark:border-border overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="flex-shrink-0 text-cyan-400">
+                <FaCertificate size={64} />
+              </div>
+              <div className="text-center md:text-left">
+                <h3 className="font-heading text-2xl font-bold text-light-text-primary dark:text-text-primary">
+                  My Collection of Certificates
+                </h3>
+                <p className="mt-2 text-light-text-secondary dark:text-text-secondary">
+                  A curated gallery of all my certifications and official recognitions.
+                </p>
+              </div>
+              <div className="flex-shrink-0 mt-6 md:mt-0">
+                <a
+                  href="/certificates"
+                  className="inline-block px-10 py-4 rounded-lg font-heading bg-gradient-light-primary dark:bg-gradient-primary text-white text-lg shadow-lg hover:shadow-primary/50 hover:scale-105 transition-all duration-300 font-semibold"
+                >
+                  View All Certificates
+                </a>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

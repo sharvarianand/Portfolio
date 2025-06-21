@@ -1,20 +1,44 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const ContactSection = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [result, setResult] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+
+  // IMPORTANT: Replace with your own access key from web3forms.com
+  const accessKey = 'YOUR_ACCESS_KEY_HERE';
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.currentTarget;
-    const name = (form.elements.namedItem('name') as HTMLInputElement).value;
-    const email = (form.elements.namedItem('email') as HTMLInputElement).value;
-    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
+    setSubmitting(true);
+    setResult(null);
 
-    const subject = `Message from ${name} via Portfolio`;
-    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    const formData = new FormData(e.currentTarget);
+    formData.append('access_key', accessKey);
 
-    window.location.href = `mailto:sharvaribhondekar23@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult('Message sent successfully!');
+        (e.target as HTMLFormElement).reset();
+      } else {
+        console.error('Error from Web3Forms:', data);
+        setResult(data.message || 'Something went wrong.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setResult('An error occurred while sending the message.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -80,6 +104,8 @@ const ContactSection = () => {
 
           <motion.form initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }} onSubmit={handleSubmit} className="bg-light-surface dark:bg-surface backdrop-blur-lg rounded-2xl p-8 shadow-lg flex flex-col gap-6 border border-light-border dark:border-border">
             <h3 className="font-heading text-2xl text-light-text-primary dark:text-text-primary mb-4">Send Me a Message</h3>
+            <input type="hidden" name="subject" value="New Message from Portfolio" />
+            
             <div className="relative group">
               <input type="text" id="name" name="name" required className="peer w-full bg-transparent border-b-2 border-light-primary/30 dark:border-primary/30 focus:border-light-primary dark:focus:border-primary outline-none py-2 px-1 text-light-text-primary dark:text-text-primary placeholder-transparent transition-all" placeholder="Name" />
               <label htmlFor="name" className="absolute left-1 -top-2 text-xs text-light-primary dark:text-primary transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-light-text-muted dark:peer-placeholder-shown:text-text-muted peer-placeholder-shown:top-2 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-light-primary dark:peer-focus:text-primary">Name</label>
@@ -92,9 +118,10 @@ const ContactSection = () => {
               <textarea id="message" name="message" required rows={4} className="peer w-full bg-transparent border-b-2 border-light-primary/30 dark:border-primary/30 focus:border-light-primary dark:focus:border-primary outline-none py-2 px-1 text-light-text-primary dark:text-text-primary placeholder-transparent transition-all resize-none" placeholder="Message" />
               <label htmlFor="message" className="absolute left-1 -top-2 text-xs text-light-primary dark:text-primary transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-light-text-muted dark:peer-placeholder-shown:text-text-muted peer-placeholder-shown:top-2 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-light-primary dark:peer-focus:text-primary">Message</label>
             </div>
-            <motion.button type="submit" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full py-3 rounded-xl font-heading bg-gradient-light-primary dark:bg-gradient-primary text-white shadow-lg hover:shadow-primary/25 transition-shadow font-semibold">
-              Send Message
+            <motion.button type="submit" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full py-3 rounded-xl font-heading bg-gradient-light-primary dark:bg-gradient-primary text-white shadow-lg hover:shadow-primary/25 transition-shadow font-semibold" disabled={submitting}>
+              {submitting ? 'Sending...' : 'Send Message'}
             </motion.button>
+            {result && <p className={`mt-4 text-sm ${result.includes('success') ? 'text-green-500' : 'text-red-500'}`}>{result}</p>}
           </motion.form>
         </div>
       </motion.div>
