@@ -23,7 +23,7 @@ const ExperienceSection = () => {
         >
           Coming soon...
         </motion.p>
-      </div>
+        </div>
     </section>
   );
 };

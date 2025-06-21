@@ -9,9 +9,9 @@ const Footer = () => {
           <h3 className="font-heading text-2xl font-bold gradient-text mb-1">Sharvari Bhondekar</h3>
           <p className="text-sm">&copy; {new Date().getFullYear()} Sharvari Bhondekar. All rights reserved.</p>
         </div>
-      </div>
-    </footer>
-  );
+    </div>
+  </footer>
+);
 };
 
 export default Footer; 

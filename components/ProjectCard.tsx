@@ -82,10 +82,10 @@ const ProjectCard = ({ name, description, tags, github, demo, image }: ProjectCa
           </a>
           {demo && (
             isDemoActive ? (
-              <a
-                href={demo}
-                target="_blank"
-                rel="noopener noreferrer"
+          <a
+            href={demo}
+            target="_blank"
+            rel="noopener noreferrer"
                 className="flex-1 px-4 py-2 rounded-lg text-center font-heading text-sm bg-gradient-light-primary dark:bg-gradient-primary text-white shadow-md hover:shadow-lg hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <ArrowTopRightOnSquareIcon className="h-4 w-4" />
@@ -94,7 +94,7 @@ const ProjectCard = ({ name, description, tags, github, demo, image }: ProjectCa
             ) : (
               <div
                 className="flex-1 px-4 py-2 rounded-lg text-center font-heading text-sm bg-light-surface-secondary dark:bg-surface-secondary text-light-text-muted dark:text-text-muted cursor-not-allowed flex items-center justify-center gap-2"
-              >
+          >
                 <ArrowTopRightOnSquareIcon className="h-4 w-4" />
                 <span>Live Demo</span>
               </div>
