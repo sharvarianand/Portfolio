@@ -80,7 +80,7 @@ const HeroSection = () => {
         </motion.div>
       </div>
       <SocialsFloat />
-      <a href="#about" aria-label="Scroll down" className="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center group">
+      <a href="#about" aria-label="Scroll down" className="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 hidden lg:flex flex-col items-center group">
         <div className="w-6 h-10 rounded-full border-2 border-light-text-secondary dark:border-text-secondary flex items-start justify-center p-1">
           <motion.div
             className="w-1 h-2 rounded-full bg-light-text-secondary dark:bg-text-secondary"

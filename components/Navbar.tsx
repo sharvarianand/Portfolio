@@ -16,7 +16,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'education', 'experience', 'achievements', 'contact'];
+      const sections = ['home', 'about', 'skills', 'projects', 'education', 'achievements', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       sections.forEach((section) => {
@@ -39,10 +39,8 @@ const Navbar = () => {
   const handleNavigation = (section: string) => {
     setIsMobileMenuOpen(false); // Close mobile menu when navigating
     if (pathname !== '/') {
-      // If we're not on the main page, navigate to main page first
       router.push(`/#${section}`);
     } else {
-      // If we're on the main page, scroll to section
       const element = document.getElementById(section);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -53,9 +51,9 @@ const Navbar = () => {
   const navItems = [
     { href: 'home', label: 'Home' },
     { href: 'about', label: 'About' },
+    { href: 'skills', label: 'Skills' },
     { href: 'projects', label: 'Projects' },
     { href: 'education', label: 'Education' },
-    { href: 'experience', label: 'Experience' },
     { href: 'achievements', label: 'Achievements' },
     { href: 'contact', label: 'Contact' },
   ];
@@ -93,93 +91,70 @@ const Navbar = () => {
             <span className="relative z-10">{label}</span>
           </button>
         ))}
-
         <button
           onClick={toggleTheme}
           className="ml-1 p-2 rounded-xl hover:bg-light-primary/10 dark:hover:bg-primary/10 transition-colors relative"
           aria-label="Toggle theme"
         >
-          <motion.div
-            initial={false}
-            animate={{ rotate: theme === 'dark' ? 0 : 180 }}
-            transition={{ duration: 0.5 }}
-          >
-            {theme === 'dark' ? (
-              <SunIcon className="w-5 h-5 text-primary" />
-            ) : (
-              <MoonIcon className="w-5 h-5 text-light-primary" />
-            )}
+          <motion.div initial={false} animate={{ rotate: theme === 'dark' ? 0 : 180 }} transition={{ duration: 0.5 }} >
+            {theme === 'dark' ? ( <SunIcon className="w-5 h-5 text-primary" /> ) : ( <MoonIcon className="w-5 h-5 text-light-primary" /> )}
           </motion.div>
         </button>
       </motion.nav>
 
       {/* Mobile Navbar */}
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-        className={`fixed top-4 left-4 right-4 z-50 lg:hidden ${
-          isScrolled 
-            ? 'bg-light-surface/90 dark:bg-surface/90 border-light-border dark:border-border shadow-lg' 
-            : 'bg-transparent border-transparent'
-        } rounded-2xl border backdrop-blur-md transition-all duration-300`}
-      >
-        <div className="flex items-center justify-between p-2">
-          <div className="flex items-center gap-2">
-            <span className="font-heading text-lg font-bold text-light-text-primary dark:text-text-primary px-3">
-              SB
-            </span>
-          </div>
+      <div className="fixed top-4 right-4 z-50 lg:hidden flex flex-col items-end gap-2">
+        <div className="flex items-center gap-2">
+          <motion.button
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            onClick={toggleTheme}
+            className="w-12 h-12 rounded-full flex items-center justify-center bg-light-surface/90 dark:bg-surface/90 border border-light-border dark:border-border backdrop-blur-md shadow-lg"
+            aria-label="Toggle theme"
+          >
+            <motion.div initial={false} animate={{ rotate: theme === 'dark' ? 0 : 180 }} transition={{ duration: 0.5 }} >
+              {theme === 'dark' ? ( <SunIcon className="w-6 h-6 text-primary" /> ) : ( <MoonIcon className="w-6 h-6 text-light-primary" /> )}
+            </motion.div>
+          </motion.button>
           
-          <div className="flex items-center gap-2">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-xl hover:bg-light-primary/10 dark:hover:bg-primary/10 transition-colors"
-              aria-label="Toggle theme"
-            >
+          <motion.button
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="w-12 h-12 rounded-full flex items-center justify-center bg-light-surface/90 dark:bg-surface/90 border border-light-border dark:border-border backdrop-blur-md shadow-lg"
+            aria-label="Toggle mobile menu"
+          >
+            <AnimatePresence initial={false} mode="wait">
               <motion.div
-                initial={false}
-                animate={{ rotate: theme === 'dark' ? 0 : 180 }}
-                transition={{ duration: 0.5 }}
+                key={isMobileMenuOpen ? 'x' : 'bars'}
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
               >
-                {theme === 'dark' ? (
-                  <SunIcon className="w-5 h-5 text-primary" />
-                ) : (
-                  <MoonIcon className="w-5 h-5 text-light-primary" />
-                )}
+                {isMobileMenuOpen ? ( <XMarkIcon className="w-6 h-6 text-light-text-primary dark:text-text-primary" /> ) : ( <Bars3Icon className="w-6 h-6 text-light-text-primary dark:text-text-primary" /> )}
               </motion.div>
-            </button>
-            
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-xl hover:bg-light-primary/10 dark:hover:bg-primary/10 transition-colors"
-              aria-label="Toggle mobile menu"
-            >
-              {isMobileMenuOpen ? (
-                <XMarkIcon className="w-6 h-6 text-light-text-primary dark:text-text-primary" />
-              ) : (
-                <Bars3Icon className="w-6 h-6 text-light-text-primary dark:text-text-primary" />
-              )}
-            </button>
-          </div>
+            </AnimatePresence>
+          </motion.button>
         </div>
-
-        {/* Mobile Menu */}
+        
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="overflow-hidden border-t border-light-border dark:border-border"
+              className="w-56 bg-light-surface/95 dark:bg-surface/95 border border-light-border dark:border-border backdrop-blur-xl rounded-2xl shadow-lg"
             >
-              <div className="p-4 space-y-2">
+              <div className="p-2 space-y-1">
                 {navItems.map(({ href, label }) => (
                   <button
                     key={href}
                     onClick={() => handleNavigation(href)}
-                    className={`w-full text-left px-4 py-3 rounded-xl font-heading text-sm transition-all duration-300 ${
+                    className={`w-full text-left px-4 py-3 rounded-xl font-heading font-medium text-sm transition-all duration-300 ${
                       activeSection === href
                         ? 'text-light-primary dark:text-primary bg-light-primary/10 dark:bg-primary/10'
                         : 'text-light-text-secondary dark:text-text-secondary hover:text-light-text-primary dark:hover:text-text-primary hover:bg-light-primary/5 dark:hover:bg-primary/5'
@@ -192,7 +167,7 @@ const Navbar = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.nav>
+      </div>
     </>
   );
 };

@@ -63,7 +63,7 @@ const AboutSection = () => {
         </div>
       </div>
       {/* Tech Stack Section */}
-      <div className="w-full max-w-6xl px-4 mt-12">
+      <div id="skills" className="w-full max-w-6xl px-4 mt-24">
         <h3 className="text-3xl md:text-4xl font-heading font-extrabold mb-8 text-left">
           <span className="block bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500 text-transparent bg-clip-text drop-shadow-lg">Tech I Use</span>
           <span className="block bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500 text-transparent bg-clip-text drop-shadow-lg">to Build Scalable Solutions</span>

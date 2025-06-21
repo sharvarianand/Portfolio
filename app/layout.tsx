@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   keywords: ["Software Developer", "AI", "Data Science", "Full Stack", "Portfolio"],
   authors: [{ name: "Sharvari Bhondekar" }],
   icons: {
-    icon: '/favicon.svg',
+    icon: '/favicon.png',
   },
   openGraph: {
     title: "Sharvari Bhondekar | Software Developer",
