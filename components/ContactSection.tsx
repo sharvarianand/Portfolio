@@ -51,7 +51,7 @@ const ContactSection = () => {
         viewport={{ once: true }}
         className="max-w-6xl mx-auto px-4 w-full"
       >
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="font-heading text-3xl md:text-4xl gradient-text mb-4 relative font-bold">
+        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="font-heading text-3xl md:text-4xl gradient-text mb-4 relative font-black">
           Get In Touch
         </motion.h2>
 

@@ -4,7 +4,7 @@ export const projects = [
     description: 'Comprehensive medical appointment and health record management system with web and mobile applications. Features user authentication, appointment booking, medical report upload with OCR, and cross-platform support.',
     tags: ['React', 'Next.js', 'Node.js', 'MongoDB', 'Kotlin', 'Jetpack Compose', 'OCR', 'Healthcare'],
     github: 'https://github.com/sharvarianand/MediLink-2.0',
-    demo: null,
+    demo: '#',
     image: '/medilink.svg',
   },
   {
@@ -12,7 +12,7 @@ export const projects = [
     description: 'An intelligent audio virtual assistant that provides voice-based interaction and automation capabilities.',
     tags: ['Python', 'AI', 'Voice Recognition', 'Virtual Assistant'],
     github: 'https://github.com/sharvarianand/Zoro---Audio-Virtual-Assistant',
-    demo: null,
+    demo: '#',
     image: '/zoro.svg',
   },
   {
@@ -20,7 +20,7 @@ export const projects = [
     description: 'AI-powered personal finance analyzer and management platform with intelligent insights and recommendations.',
     tags: ['React', 'Django', 'AI', 'Finance', 'Machine Learning'],
     github: 'https://github.com/sharvarianand/StratoFi',
-    demo: null,
+    demo: '#',
     image: '/stratofi.svg',
   },
   {
@@ -28,7 +28,7 @@ export const projects = [
     description: 'Advanced synthetic data generation platform for machine learning and AI development with customizable data synthesis capabilities.',
     tags: ['Python', 'AI', 'Machine Learning', 'Data Generation', 'Synthetic Data'],
     github: 'https://github.com/sharvarianand/SynthIDEAL_Pro',
-    demo: null,
+    demo: '#',
     image: '/synthideal.svg',
   },
   {
@@ -36,7 +36,7 @@ export const projects = [
     description: 'Modern, responsive portfolio website built with Next.js and Tailwind CSS, featuring dark/light mode, animations, and professional presentation.',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Responsive Design'],
     github: 'https://github.com/sharvarianand/Portfolio',
-    demo: null,
+    demo: 'https://sharvaribhondekarportfolio.netlify.app',
     image: '/portfolio.svg',
   },
 ]; 

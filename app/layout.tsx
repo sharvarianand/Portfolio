@@ -11,6 +11,16 @@ export const metadata: Metadata = {
   description: "Aspiring SDE and AI/Data Science Enthusiast",
   keywords: ["Software Developer", "AI", "Data Science", "Full Stack", "Portfolio"],
   authors: [{ name: "Sharvari Bhondekar" }],
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
   openGraph: {
     title: "Sharvari Bhondekar | Software Developer",
     description: "Aspiring SDE and AI/Data Science Enthusiast",
