@@ -32,14 +32,14 @@ const EducationSection = () => {
               </div>
               
               {/* Content */}
-              <div className={`w-full flex ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}>
+              <div className={`w-full flex ${index % 2 !== 0 ? 'md:justify-end' : 'md:justify-start'}`}>
                 <div className="w-full md:w-5/12 pl-12 md:pl-0">
                   <motion.div
-                    initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+                    initial={{ opacity: 0, x: index % 2 !== 0 ? 50 : -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2, duration: 0.5 }}
-                    className={`bg-light-surface dark:bg-surface p-6 rounded-2xl border border-light-border dark:border-border shadow-lg ${index % 2 === 0 ? 'md:text-right' : ''}`}
+                    className="bg-light-surface dark:bg-surface p-6 rounded-2xl border border-light-border dark:border-border shadow-lg"
                   >
                     <p className="text-sm font-semibold text-light-primary dark:text-primary mb-1">{item.date}</p>
                     <h3 className="font-heading text-xl font-bold text-light-text-primary dark:text-text-primary mb-2">{item.title}</h3>
