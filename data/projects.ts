@@ -37,6 +37,9 @@ export const projects = [
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Responsive Design'],
     github: 'https://github.com/sharvarianand/Portfolio',
     demo: 'https://sharvaribhondekarportfolio.netlify.app',
-    image: '/portfolio.svg',
+    image: {
+      dark: '/portfolio-live-dark.png',
+      light: '/portfolio-live-light.png'
+    },
   },
 ]; 
