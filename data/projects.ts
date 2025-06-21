@@ -38,8 +38,8 @@ export const projects = [
     github: 'https://github.com/sharvarianand/Portfolio',
     demo: 'https://sharvaribhondekarportfolio.netlify.app',
     image: {
-      dark: '/portfolio-live-dark.png',
-      light: '/portfolio-live-light.png'
+      dark: '/portfolio%20live%20dark.png',
+      light: '/portfolio%20live%20light.png'
     },
   },
 ]; 
