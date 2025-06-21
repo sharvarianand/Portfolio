@@ -12,7 +12,7 @@
 
 Welcome to my portfolio website repository! This is a modern, responsive web application built with Next.js and TypeScript, showcasing my projects and skills as a Full Stack Developer and AI enthusiast. The site features a clean, modern design with a 3D interactive globe and smooth animations.
 
-**Visit the live site: [sharvari.dev](https://sharvaribhondekarporfolio.netlify.app/)** 
+**Visit the live site: [sharvari.dev](https://sharvaribhondekarportfolio.netlify.app/)** 
 
 ## ✨ Features
 
