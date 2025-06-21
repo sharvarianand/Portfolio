@@ -11,7 +11,7 @@ interface ProjectCardProps {
   description: string;
   tags: string[];
   github: string;
-  demo: string;
+  demo: string | null;
   image: string;
 }
 
@@ -63,20 +63,24 @@ const ProjectCard = ({ name, description, tags, github, demo, image }: ProjectCa
             href={github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 px-4 py-2 rounded-lg text-center font-heading text-sm border border-light-primary dark:border-primary text-light-primary dark:text-primary hover:bg-light-primary/10 dark:hover:bg-primary/10 transition-colors duration-300 flex items-center justify-center gap-2"
+            className={`px-4 py-2 rounded-lg text-center font-heading text-sm border border-light-primary dark:border-primary text-light-primary dark:text-primary hover:bg-light-primary/10 dark:hover:bg-primary/10 transition-colors duration-300 flex items-center justify-center gap-2 ${
+              demo ? 'flex-1' : 'flex-1'
+            }`}
           >
             <FaGithub className="h-5 w-5" />
             <span>Code</span>
           </a>
-          <a
-            href={demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 px-4 py-2 rounded-lg text-center font-heading text-sm bg-gradient-light-primary dark:bg-gradient-primary text-white hover:opacity-90 transition-opacity duration-300 flex items-center justify-center gap-2"
-          >
-            <ArrowTopRightOnSquareIcon className="h-5 w-5" />
-            <span>Live Demo</span>
-          </a>
+          {demo && (
+            <a
+              href={demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 px-4 py-2 rounded-lg text-center font-heading text-sm bg-gradient-light-primary dark:bg-gradient-primary text-white hover:opacity-90 transition-opacity duration-300 flex items-center justify-center gap-2"
+            >
+              <ArrowTopRightOnSquareIcon className="h-5 w-5" />
+              <span>Live Demo</span>
+            </a>
+          )}
         </div>
       </div>
     </motion.div>
