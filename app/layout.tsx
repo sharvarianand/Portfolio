@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import ScrollIndicator from "../components/ScrollIndicator";
 import { ThemeProvider } from "./ThemeProvider";
 import BackgroundCircles from "../components/BackgroundCircles";
 import SocialsFloat from '../components/SocialsFloat';

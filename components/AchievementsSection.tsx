@@ -11,38 +11,46 @@ const AchievementsSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-heading text-4xl md:text-5xl gradient-text mb-4 text-left font-bold"
+          className="font-heading text-4xl md:text-5xl gradient-text mb-16 text-center font-bold"
         >
           My Achievements
         </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-lg text-light-text-secondary dark:text-text-secondary mb-12 max-w-3xl text-left"
-        >
-          A few of my proudest accomplishments and recognitions.
-        </motion.p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        {/* Badges Container */}
+        <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-16">
           {achievements.map((item, index) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              whileHover={{ scale: 1.05, y: -10 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
-              className="group relative bg-light-surface dark:bg-slate-800/80 p-6 rounded-2xl border border-light-border dark:border-slate-700/80 overflow-hidden hover:shadow-xl hover:border-sky-500/50 dark:hover:border-sky-500 transition-all duration-300 flex flex-col items-start"
+              transition={{ delay: index * 0.2, duration: 0.4 }}
+              className="group relative w-72 h-72 rounded-full flex flex-col items-center justify-center p-6 text-center shadow-2xl transition-all duration-300 cursor-pointer border-4 border-slate-700 bg-slate-800 hover:border-sky-500"
             >
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/5 via-transparent to-sky-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-              <div className="absolute top-0 -left-48 w-96 h-96 bg-sky-500/20 rounded-full blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-700 -z-10" />
+              {/* Inner gradient circle for depth */}
+              <div className="absolute inset-2 rounded-full bg-gradient-to-br from-slate-800 to-slate-900" />
+              
+              {/* Glowing hover effect */}
+              <div className="absolute -inset-2 rounded-full bg-sky-500/50 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="text-4xl mb-4 p-3 bg-slate-700/50 border border-slate-600 rounded-xl shadow-md">
-                {item.icon}
+              {/* Content visible by default */}
+              <div className="relative z-10 flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0">
+                <div className="text-7xl mb-4">
+                  {item.icon}
+                </div>
+                <h3 className="font-heading text-2xl font-bold text-white">
+                  {item.title}
+                </h3>
+                 <span className="text-sm font-bold text-sky-400 mt-2">{item.year}</span>
               </div>
-              <h3 className="font-heading text-xl font-bold text-light-text-primary dark:text-text-primary mb-2 z-10">{item.title}</h3>
-              <p className="text-light-text-secondary dark:text-slate-300 text-sm mb-4 flex-grow z-10">{item.description}</p>
-              <span className="text-xs font-bold text-sky-400 mt-auto z-10">{item.year}</span>
+              
+              {/* Description revealed on hover */}
+              <div className="absolute inset-0 z-20 flex items-center justify-center p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-slate-200 text-sm">
+                  {item.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
