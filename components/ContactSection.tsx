@@ -1,11 +1,20 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const ContactSection = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submitted');
+    const form = e.currentTarget;
+    const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
+
+    const subject = `Message from ${name} via Portfolio`;
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+
+    window.location.href = `mailto:sharvaribhondekar23@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
@@ -18,7 +27,7 @@ const ContactSection = () => {
         viewport={{ once: true }}
         className="max-w-6xl mx-auto px-4 w-full"
       >
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="font-heading text-3xl md:text-4xl gradient-text mb-4 relative">
+        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="font-heading text-3xl md:text-4xl gradient-text mb-4 relative font-bold">
           Get In Touch
         </motion.h2>
 
@@ -31,24 +40,30 @@ const ContactSection = () => {
             <h3 className="font-heading text-2xl text-light-text-primary dark:text-text-primary mb-6">Contact Information</h3>
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-light-primary/10 dark:bg-primary/10 flex items-center justify-center"><span className="text-light-primary dark:text-primary text-lg">✉️</span></div>
+                <div className="w-10 h-10 rounded-full bg-light-primary/10 dark:bg-primary/10 flex items-center justify-center">
+                  <FaEnvelope className="h-5 w-5 text-light-primary dark:text-primary" />
+                </div>
                 <div>
                   <p className="text-light-text-primary dark:text-text-primary font-medium">Email</p>
-                  <p className="text-light-text-secondary dark:text-text-secondary">sharvari@example.com</p>
+                  <a href="mailto:sharvaribhondekar23@gmail.com" className="text-light-text-secondary dark:text-text-secondary hover:text-light-primary dark:hover:text-primary transition-colors">sharvaribhondekar23@gmail.com</a>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-light-secondary/10 dark:bg-secondary/10 flex items-center justify-center"><span className="text-light-secondary dark:text-secondary text-lg">💼</span></div>
+                <div className="w-10 h-10 rounded-full bg-light-secondary/10 dark:bg-secondary/10 flex items-center justify-center">
+                  <FaLinkedin className="h-5 w-5 text-light-primary dark:text-primary" />
+                </div>
                 <div>
                   <p className="text-light-text-primary dark:text-text-primary font-medium">LinkedIn</p>
-                  <p className="text-light-text-secondary dark:text-text-secondary">linkedin.com/in/sharvari</p>
+                  <a href="https://linkedin.com/in/sharvari-bhondekar-872a7a282" target="_blank" rel="noopener noreferrer" className="text-light-text-secondary dark:text-text-secondary hover:text-light-primary dark:hover:text-primary transition-colors">linkedin.com/in/sharvari-bhondekar</a>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-light-highlight/10 dark:bg-highlight/10 flex items-center justify-center"><span className="text-light-highlight dark:text-highlight text-lg">📱</span></div>
+                <div className="w-10 h-10 rounded-full bg-light-highlight/10 dark:bg-highlight/10 flex items-center justify-center">
+                  <FaGithub className="h-5 w-5 text-light-primary dark:text-primary" />
+                </div>
                 <div>
                   <p className="text-light-text-primary dark:text-text-primary font-medium">GitHub</p>
-                  <p className="text-light-text-secondary dark:text-text-secondary">github.com/sharvari</p>
+                  <a href="https://github.com/sharvarianand" target="_blank" rel="noopener noreferrer" className="text-light-text-secondary dark:text-text-secondary hover:text-light-primary dark:hover:text-primary transition-colors">github.com/sharvarianand</a>
                 </div>
               </div>
             </div>
