@@ -7,7 +7,7 @@ import BackgroundCircles from "../components/BackgroundCircles";
 import SocialsFloat from '../components/SocialsFloat';
 
 export const metadata: Metadata = {
-  title: "Sharvari Bhondekar | Software Developer",
+  title: "Sharvari Bhondekar | Portfolio",
   description: "Aspiring SDE and AI/Data Science Enthusiast",
   keywords: ["Software Developer", "AI", "Data Science", "Full Stack", "Portfolio"],
   authors: [{ name: "Sharvari Bhondekar" }],
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     icon: '/favicon.png',
   },
   openGraph: {
-    title: "Sharvari Bhondekar | Software Developer",
+    title: "Sharvari Bhondekar | Portfolio",
     description: "Aspiring SDE and AI/Data Science Enthusiast",
     type: "website",
   },
