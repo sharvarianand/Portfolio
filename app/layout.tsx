@@ -26,14 +26,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-body antialiased">
+      <body className="font-body antialiased bg-light-background dark:bg-background text-light-text-primary dark:text-text-primary">
         <ThemeProvider>
           <BackgroundCircles />
-          <ScrollIndicator />
           <Navbar />
-          <main className="min-h-screen relative z-10">{children}</main>
-          <Footer />
+          <main className="relative z-10">{children}</main>
           <SocialsFloat />
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

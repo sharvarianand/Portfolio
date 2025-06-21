@@ -18,7 +18,7 @@ const AboutSection = () => {
           </div>
           <span className="px-3 py-1 text-xs bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 text-white rounded-full font-semibold shadow-md mt-2">
             🚀 Currently exploring: Java and DSA
-          </span>
+            </span>
           <blockquote className="italic text-slate-500 dark:text-slate-300 text-center mt-2 text-sm">“Curiosity fuels my code.”</blockquote>
         </div>
         {/* Right: Content */}
@@ -35,8 +35,8 @@ const AboutSection = () => {
           </div>
           <div className="text-lg text-slate-800 dark:text-slate-200 leading-relaxed space-y-3 font-medium">
             <p>
-              As an engineering student specializing in Artificial Intelligence and Data Science, I'm driven by a passion for leveraging technology to solve complex problems.
-            </p>
+              As an engineering student specializing in Artificial Intelligence and Data Science, I&apos;m driven by a passion for leveraging technology to solve complex problems.
+          </p>
             <p>
               I thrive on building impactful applications that solve real-world problems and staying up-to-date with the latest advancements in AI and tech. My goal is to contribute to cutting-edge solutions that shape a better future.
             </p>
@@ -54,10 +54,10 @@ const AboutSection = () => {
             <div className="flex items-center gap-2"><FaEnvelope className="text-sky-500 dark:text-sky-400" /> sharvaribhondekar23@gmail.com</div>
           </div>
           <a
-            href="/mock_resume.pdf"
-            download
+          href="/mock_resume.pdf"
+          download
             className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-full font-heading bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 text-white shadow-lg hover:shadow-primary/50 hover:scale-105 transition-all duration-300 font-semibold self-start text-lg"
-          >
+        >
             <FaFileAlt /> View Resume
           </a>
         </div>

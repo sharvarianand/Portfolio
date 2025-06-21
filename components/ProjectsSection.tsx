@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-24 px-4 flex flex-col items-center text-center">
+    <section id="projects" className="py-16 px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -17,9 +17,9 @@ const ProjectsSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-heading text-3xl md:text-4xl gradient-text mb-4"
+          className="font-heading text-4xl md:text-5xl gradient-text mb-4 text-left"
         >
-          Featured Projects
+          From Concept to Creation:<br /><span className="font-bold">My Featured Projects</span>
         </motion.h2>
         
         <motion.p
@@ -27,7 +27,7 @@ const ProjectsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-lg text-light-text-secondary dark:text-text-secondary mb-12 max-w-3xl mx-auto"
+          className="text-lg text-light-text-secondary dark:text-text-secondary mb-12 max-w-3xl text-left"
         >
           Here are some of the projects I&apos;m proud to have worked on. Each one represents a challenge I was excited to tackle.
         </motion.p>

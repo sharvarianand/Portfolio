@@ -2,93 +2,50 @@
 import React from 'react';
 import { experience } from '../data/experience';
 import { motion } from 'framer-motion';
+import { BriefcaseIcon } from '@heroicons/react/24/solid';
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-24 flex flex-col items-center text-center gap-8">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="max-w-6xl mx-auto px-4"
-      >
+    <section id="experience" className="py-24">
+      <div className="max-w-6xl mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-heading text-3xl md:text-4xl gradient-text mb-4"
+          className="font-heading text-4xl md:text-5xl gradient-text mb-16 text-center"
         >
-          Education & Experience
+          My Professional Experience
         </motion.h2>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-lg text-light-text-secondary dark:text-text-secondary mb-12 max-w-3xl mx-auto"
-        >
-          My academic journey and professional development, highlighting key milestones and areas of expertise.
-        </motion.p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="relative">
+          {/* Timeline Line */}
+          <div className="absolute left-1/2 -translate-x-1/2 h-full w-1 bg-light-border dark:bg-border rounded-full" />
+          
           {experience.map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className={`relative rounded-2xl p-6 bg-light-surface dark:bg-surface border border-light-border dark:border-border hover:border-light-primary/50 dark:hover:border-primary/50 transition-all duration-300 ${
-                item.type === 'badge' ? 'ring-2 ring-light-highlight/20 dark:ring-highlight/20' : ''
-              }`}
-            >
-              {item.type === 'badge' && (
-                <motion.span
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
+            <div key={item.title} className={`mb-12 flex items-center w-full ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}>
+              <div className="w-1/2" />
+              <div className="w-1/2 px-4">
+                <motion.div
+                  initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className="absolute -top-3 right-4 bg-gradient-light-highlight dark:bg-gradient-highlight text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg"
+                  transition={{ delay: 0.2 }}
+                  className={`relative bg-light-surface dark:bg-surface p-6 rounded-2xl border border-light-border dark:border-border shadow-lg ${index % 2 === 0 ? 'text-left' : 'text-right'}`}
                 >
-                  GATE 2026
-                </motion.span>
-              )}
-              
-              <div className="text-center">
-                <h3 className="font-heading text-lg text-light-text-primary dark:text-text-primary mb-2">{item.title}</h3>
-                <p className="text-light-text-secondary dark:text-text-secondary text-sm leading-relaxed">{item.description}</p>
-                
-                {item.type === 'bootcamp' && (
-                  <div className="mt-4 pt-4 border-t border-light-border dark:border-border">
-                    <span className="text-light-primary dark:text-primary text-sm font-medium">Full Stack + DSA (Java)</span>
-                  </div>
-                )}
-                
-                {item.type === 'hackathon' && (
-                  <div className="mt-4 pt-4 border-t border-light-border dark:border-border">
-                    <span className="text-light-secondary dark:text-secondary text-sm font-medium">Code Craft AI x Dev, Smart India Hackathon</span>
-                  </div>
-                )}
+                  <div className={`absolute top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-light-primary dark:bg-primary border-4 border-light-background dark:border-background ${index % 2 === 0 ? '-left-3' : '-right-3'}`} />
+                  <p className="text-sm font-semibold text-light-primary dark:text-primary mb-1">{item.date}</p>
+                  <h3 className="font-heading text-xl font-bold text-light-text-primary dark:text-text-primary mb-2">{item.title}</h3>
+                  <p className="text-sm text-light-text-secondary dark:text-text-secondary">{item.company}</p>
+                  <ul className="mt-4 list-disc list-inside text-sm text-light-text-secondary dark:text-text-secondary space-y-1">
+                    {item.description.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </motion.div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="mt-12"
-        >
-          <a
-            href="/certificates"
-            className="inline-block px-8 py-3 rounded-full font-heading bg-gradient-light-primary dark:bg-gradient-primary text-white shadow-lg hover:shadow-primary/50 hover:scale-105 transition-all duration-300 font-semibold"
-          >
-            View Certificates
-          </a>
-        </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 };

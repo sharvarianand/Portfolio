@@ -1,17 +1,21 @@
-import HeroSection from '../components/HeroSection';
-import AboutSection from '../components/AboutSection';
-import ProjectsSection from '../components/ProjectsSection';
-import ExperienceSection from '../components/ExperienceSection';
-import ContactSection from '../components/ContactSection';
+import AboutSection from '@/components/AboutSection';
+import ContactSection from '@/components/ContactSection';
+import EducationSection from '@/components/EducationSection';
+import ExperienceSection from '@/components/ExperienceSection';
+import AchievementsSection from '@/components/AchievementsSection';
+import HeroSection from '@/components/HeroSection';
+import ProjectsSection from '@/components/ProjectsSection';
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center w-full">
+    <>
       <HeroSection />
       <AboutSection />
       <ProjectsSection />
+      <EducationSection />
       <ExperienceSection />
+      <AchievementsSection />
       <ContactSection />
-      </main>
+    </>
   );
 }

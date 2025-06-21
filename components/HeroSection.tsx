@@ -56,7 +56,7 @@ const HeroSection = () => {
           transition={{ duration: 1.2 }}
           className="relative text-base md:text-lg max-w-2xl lg:max-w-4xl text-light-text-secondary dark:text-text-secondary mb-8 px-4"
         >
-          I'm passionate about crafting high-quality software, solving real-world problems, and continuously learning new technologies specially in the field of Artificial Intelligence. My goal is to create impactful products that make a difference.
+          I&apos;m passionate about crafting high-quality software, solving real-world problems, and continuously learning new technologies specially in the field of Artificial Intelligence. My goal is to create impactful products that make a difference.
         </motion.p>
 
         <motion.div
