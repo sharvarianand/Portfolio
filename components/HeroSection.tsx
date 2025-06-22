@@ -2,12 +2,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Globe from './Globe';
-import { useTheme } from '../app/ThemeProvider';
+import { useTheme } from 'next-themes';
 import SocialsFloat from './SocialsFloat';
 
 const HeroSection = () => {
-  const { theme } = useTheme();
-  const globeColor = theme === 'dark' ? '#ffffff' : '#000000';
+  const { resolvedTheme } = useTheme();
+  const globeColor = resolvedTheme === 'dark' ? '#ffffff' : '#000000';
 
   return (
     <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden">

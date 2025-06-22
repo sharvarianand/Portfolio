@@ -29,7 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="font-body antialiased bg-light-background dark:bg-background text-light-text-primary dark:text-text-primary">
-        <ThemeProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <BackgroundCircles />
           <Navbar />
           <main className="relative z-10">{children}</main>

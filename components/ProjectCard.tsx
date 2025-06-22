@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import { FaGithub } from 'react-icons/fa';
 import Image from 'next/image';
-import { useTheme } from '../app/ThemeProvider';
+import { useTheme } from 'next-themes';
 
 interface ProjectCardProps {
   name: string;
@@ -17,13 +17,13 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ name, description, tags, github, demo, image }: ProjectCardProps) => {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   
   let imageUrl: string;
   if (typeof image === 'string') {
     imageUrl = image;
   } else {
-    imageUrl = theme === 'dark' ? image.dark : image.light;
+    imageUrl = resolvedTheme === 'dark' ? image.dark : image.light;
   }
   
   const isDemoActive = demo && demo !== '#';
