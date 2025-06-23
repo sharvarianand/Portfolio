@@ -18,7 +18,7 @@ export const achievements = [
     icon: '🎓',
   },
   {
-    title: "AFE Bootcamp '25",
+    title: "AFE Bootcamp",
     description: 'Advanced to Phase 2 of the Amazon Future Engineer (AFE) Bootcamp, selected among the top 513 candidates in India. Phase 1 focused on Python, with Phase 2 covering Java and DSA.',
     year: '2025',
     icon: '🚀',
