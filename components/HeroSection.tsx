@@ -47,7 +47,7 @@ const HeroSection = () => {
           transition={{ duration: 1 }}
           className="relative font-heading text-2xl md:text-3xl lg:text-4xl text-light-primary dark:text-primary mb-6 font-semibold"
         >
-          AI Enthusiast <span className="text-slate-400 dark:text-slate-600">|</span> Aspiring Software Developer <span className="text-slate-400 dark:text-slate-600">|</span> Scaling Smart Solutions
+          AI Enthusiast <span className="text-black dark:text-black">|</span> Aspiring Software Developer <span className="text-black dark:text-black">|</span> Scaling Smart Solutions
         </motion.h2>
 
         <motion.p
