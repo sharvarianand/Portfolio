@@ -68,31 +68,40 @@ const AboutSection = () => {
           <span className="block bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500 text-transparent bg-clip-text drop-shadow-lg">Tech I Use</span>
           <span className="block bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500 text-transparent bg-clip-text drop-shadow-lg">to Build Scalable Solutions</span>
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white/80 dark:bg-slate-900/60 rounded-xl p-6 border border-slate-200 dark:border-border hover:border-sky-400 dark:hover:border-primary/50 transition-all duration-300 shadow-md"
-            >
-              <div className="flex justify-between items-center mb-3">
-                <span className="text-slate-800 dark:text-slate-100 font-semibold text-lg">{skill.name}</span>
-                <span className="text-sky-600 dark:text-sky-400 font-bold">{skill.value}%</span>
-              </div>
-              <div className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${skill.value}%` }}
-                  transition={{ duration: 1, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="h-full bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 rounded-full"
-                />
-              </div>
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+          {skills.map(({ name, icon: Icon }, index) => {
+            // Define brand colors for each skill
+            const brandColors: Record<string, string> = {
+              HTML: '#E34F26',
+              CSS: '#1572B6',
+              JavaScript: '#F7DF1E',
+              TypeScript: '#3178C6',
+              React: '#61DAFB',
+              'Next.js': '#000000',
+              'Node.js': '#339933',
+              'Express.js': '#000000',
+              Tailwind: '#06B6D4',
+              MongoDB: '#47A248',
+              MySQL: '#4479A1',
+              Python: '#3776AB',
+              Java: '#007396',
+              Git: '#F05032',
+            };
+            const color = brandColors[name] || 'currentColor';
+            return (
+              <motion.div
+                key={name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05 }}
+                viewport={{ once: true }}
+                className="flex flex-col items-center justify-center bg-white/80 dark:bg-slate-900/60 rounded-xl p-6 border border-slate-200 dark:border-border shadow-md hover:scale-105 transition-transform duration-300"
+              >
+                <Icon className="mb-3" size={48} color={color} />
+                <span className="font-heading text-lg text-slate-800 dark:text-slate-100 mt-1">{name}</span>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

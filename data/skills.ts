@@ -1,14 +1,20 @@
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGit, FaJava } from 'react-icons/fa';
+import { SiTailwindcss, SiTypescript, SiMongodb, SiNextdotjs, SiExpress, SiMysql, SiPython } from 'react-icons/si';
+
 export const skills = [
-  { name: 'Java', value: 50 },
-  { name: 'Python', value: 80 },
-  { name: 'C', value: 70 },
-  { name: 'JavaScript', value: 60 },
-  { name: 'TypeScript', value: 85 },
-  { name: 'HTML/CSS', value: 85 },
-  { name: 'React', value: 80 },
-  { name: 'Next.js', value: 80 },
-  { name: 'Node.js', value: 80 },
-  { name: 'MongoDB', value: 80 },
-  { name: 'MySQL', value: 85 },
-  { name: 'Git', value: 90 },
+  { name: 'HTML', icon: FaHtml5 },
+  { name: 'CSS', icon: FaCss3Alt },
+  { name: 'JavaScript', icon: FaJs },
+  { name: 'TypeScript', icon: SiTypescript },
+  { name: 'React', icon: FaReact },
+  { name: 'Next.js', icon: SiNextdotjs },
+  { name: 'Node.js', icon: FaNodeJs },
+  { name: 'Express.js', icon: SiExpress },
+  { name: 'Tailwind', icon: SiTailwindcss },
+  { name: 'MongoDB', icon: SiMongodb },
+  { name: 'MySQL', icon: SiMysql },
+  { name: 'Python', icon: SiPython },
+  { name: 'Java', icon: FaJava },
+  { name: 'Git', icon: FaGit },
+  // Add more skills here only if you confirm the icon exists in react-icons
 ]; 

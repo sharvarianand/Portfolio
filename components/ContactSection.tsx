@@ -8,7 +8,7 @@ const ContactSection = () => {
   const [submitting, setSubmitting] = useState(false);
 
   // IMPORTANT: Replace with your own access key from web3forms.com
-  const accessKey = 'YOUR_ACCESS_KEY_HERE';
+  const accessKey = 'e4f4ffb3-b31e-4756-8848-e950db7707cf';
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -102,23 +102,23 @@ const ContactSection = () => {
             </div>
           </motion.div>
 
-          <motion.form initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }} onSubmit={handleSubmit} className="bg-light-surface dark:bg-surface backdrop-blur-lg rounded-2xl p-8 shadow-lg flex flex-col gap-6 border border-light-border dark:border-border">
+          <motion.form initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }} onSubmit={handleSubmit} className="bg-light-surface dark:bg-surface backdrop-blur-lg rounded-2xl sm:p-8 p-4 shadow-lg flex flex-col gap-8 border border-light-border dark:border-border w-full max-w-md mx-auto">
             <h3 className="font-heading text-2xl text-light-text-primary dark:text-text-primary mb-4">Send Me a Message</h3>
             <input type="hidden" name="subject" value="New Message from Portfolio" />
             
-            <div className="relative group">
-              <input type="text" id="name" name="name" required className="peer w-full bg-transparent border-b-2 border-light-primary/30 dark:border-primary/30 focus:border-light-primary dark:focus:border-primary outline-none py-2 px-1 text-light-text-primary dark:text-text-primary placeholder-transparent transition-all" placeholder="Name" />
-              <label htmlFor="name" className="absolute left-1 -top-2 text-xs text-light-primary dark:text-primary transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-light-text-muted dark:peer-placeholder-shown:text-text-muted peer-placeholder-shown:top-2 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-light-primary dark:peer-focus:text-primary">Name</label>
+            <div className="relative group mb-2">
+              <input type="text" id="name" name="name" required className="peer w-full bg-transparent border-b-2 border-light-primary/30 dark:border-primary/30 focus:border-light-primary dark:focus:border-primary outline-none py-3 px-2 text-base text-light-text-primary dark:text-text-primary placeholder-transparent transition-all" placeholder="Name" />
+              <label htmlFor="name" className="absolute left-2 -top-2 text-xs text-light-primary dark:text-primary transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-light-text-muted dark:peer-placeholder-shown:text-text-muted peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-light-primary dark:peer-focus:text-primary">Name</label>
             </div>
-            <div className="relative group">
-              <input type="email" id="email" name="email" required className="peer w-full bg-transparent border-b-2 border-light-primary/30 dark:border-primary/30 focus:border-light-primary dark:focus:border-primary outline-none py-2 px-1 text-light-text-primary dark:text-text-primary placeholder-transparent transition-all" placeholder="Email" />
-              <label htmlFor="email" className="absolute left-1 -top-2 text-xs text-light-primary dark:text-primary transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-light-text-muted dark:peer-placeholder-shown:text-text-muted peer-placeholder-shown:top-2 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-light-primary dark:peer-focus:text-primary">Email</label>
+            <div className="relative group mb-2">
+              <input type="email" id="email" name="email" required className="peer w-full bg-transparent border-b-2 border-light-primary/30 dark:border-primary/30 focus:border-light-primary dark:focus:border-primary outline-none py-3 px-2 text-base text-light-text-primary dark:text-text-primary placeholder-transparent transition-all" placeholder="Email" />
+              <label htmlFor="email" className="absolute left-2 -top-2 text-xs text-light-primary dark:text-primary transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-light-text-muted dark:peer-placeholder-shown:text-text-muted peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-light-primary dark:peer-focus:text-primary">Email</label>
             </div>
-            <div className="relative group">
-              <textarea id="message" name="message" required rows={4} className="peer w-full bg-transparent border-b-2 border-light-primary/30 dark:border-primary/30 focus:border-light-primary dark:focus:border-primary outline-none py-2 px-1 text-light-text-primary dark:text-text-primary placeholder-transparent transition-all resize-none" placeholder="Message" />
-              <label htmlFor="message" className="absolute left-1 -top-2 text-xs text-light-primary dark:text-primary transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-light-text-muted dark:peer-placeholder-shown:text-text-muted peer-placeholder-shown:top-2 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-light-primary dark:peer-focus:text-primary">Message</label>
+            <div className="relative group mb-2">
+              <textarea id="message" name="message" required rows={4} className="peer w-full bg-transparent border-b-2 border-light-primary/30 dark:border-primary/30 focus:border-light-primary dark:focus:border-primary outline-none py-3 px-2 text-base text-light-text-primary dark:text-text-primary placeholder-transparent transition-all resize-none" placeholder="Message" />
+              <label htmlFor="message" className="absolute left-2 -top-2 text-xs text-light-primary dark:text-primary transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-light-text-muted dark:peer-placeholder-shown:text-text-muted peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-light-primary dark:peer-focus:text-primary">Message</label>
             </div>
-            <motion.button type="submit" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full py-3 rounded-xl font-heading bg-gradient-light-primary dark:bg-gradient-primary text-white shadow-lg hover:shadow-primary/25 transition-shadow font-semibold" disabled={submitting}>
+            <motion.button type="submit" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full py-4 rounded-xl font-heading bg-gradient-light-primary dark:bg-gradient-primary text-white shadow-lg hover:shadow-primary/25 transition-shadow font-semibold text-base sm:text-lg" disabled={submitting}>
               {submitting ? 'Sending...' : 'Send Message'}
             </motion.button>
             {result && <p className={`mt-4 text-sm ${result.includes('success') ? 'text-green-500' : 'text-red-500'}`}>{result}</p>}
