@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useTheme } from 'next-themes';
 import { SunIcon, MoonIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter, usePathname } from 'next/navigation';
+import { useClientTheme } from '../hooks/useClientTheme';
 
 const Navbar = () => {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme, mounted } = useClientTheme();
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -96,8 +96,14 @@ const Navbar = () => {
         className="ml-1 p-2 rounded-xl hover:bg-light-primary/10 dark:hover:bg-primary/10 transition-colors relative"
         aria-label="Toggle theme"
       >
-          <motion.div initial={false} animate={{ rotate: resolvedTheme === 'dark' ? 0 : 180 }} transition={{ duration: 0.5 }} >
-            {resolvedTheme === 'dark' ? ( <SunIcon className="w-5 h-5 text-primary" /> ) : ( <MoonIcon className="w-5 h-5 text-light-primary" /> )}
+          <motion.div initial={false} animate={{ rotate: mounted && resolvedTheme === 'dark' ? 0 : 180 }} transition={{ duration: 0.5 }} >
+            {!mounted ? (
+              <SunIcon className="w-5 h-5 text-light-primary" />
+            ) : resolvedTheme === 'dark' ? (
+              <SunIcon className="w-5 h-5 text-primary" />
+            ) : (
+              <MoonIcon className="w-5 h-5 text-light-primary" />
+            )}
         </motion.div>
       </button>
     </motion.nav>
@@ -113,8 +119,14 @@ const Navbar = () => {
             className="w-12 h-12 rounded-full flex items-center justify-center bg-light-surface/90 dark:bg-surface/90 border border-light-border dark:border-border backdrop-blur-md shadow-lg"
             aria-label="Toggle theme"
           >
-            <motion.div initial={false} animate={{ rotate: resolvedTheme === 'dark' ? 0 : 180 }} transition={{ duration: 0.5 }} >
-              {resolvedTheme === 'dark' ? ( <SunIcon className="w-6 h-6 text-primary" /> ) : ( <MoonIcon className="w-6 h-6 text-light-primary" /> )}
+            <motion.div initial={false} animate={{ rotate: mounted && resolvedTheme === 'dark' ? 0 : 180 }} transition={{ duration: 0.5 }} >
+              {!mounted ? (
+                <SunIcon className="w-6 h-6 text-light-primary" />
+              ) : resolvedTheme === 'dark' ? (
+                <SunIcon className="w-6 h-6 text-primary" />
+              ) : (
+                <MoonIcon className="w-6 h-6 text-light-primary" />
+              )}
             </motion.div>
           </motion.button>
           

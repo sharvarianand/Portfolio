@@ -1,11 +1,14 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { skills } from '../data/skills';
 import Image from 'next/image';
 import { FaMapMarkerAlt, FaEnvelope, FaFileAlt } from 'react-icons/fa';
+import ResumeModal from './ResumeModal';
 
 const AboutSection = () => {
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
+
   return (
     <section id="about" className="py-24 max-w-6xl mx-auto px-4">
       <div className="relative bg-white/80 dark:bg-slate-900/60 backdrop-blur-xl rounded-2xl shadow-lg p-8 flex flex-col md:flex-row items-center md:items-start gap-10 border border-slate-200 dark:border-slate-700">
@@ -53,13 +56,12 @@ const AboutSection = () => {
             <div className="flex items-center gap-2"><FaMapMarkerAlt className="text-sky-500 dark:text-sky-400" /> Mumbai, India</div>
             <div className="flex items-center gap-2"><FaEnvelope className="text-sky-500 dark:text-sky-400" /> sharvaribhondekar23@gmail.com</div>
           </div>
-          <a
-          href="/mock_resume.pdf"
-          download
+          <button
+            onClick={() => setIsResumeModalOpen(true)}
             className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-full font-heading bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 text-white shadow-lg hover:shadow-primary/50 hover:scale-105 transition-all duration-300 font-semibold self-start text-lg"
-        >
+          >
             <FaFileAlt /> View Resume
-          </a>
+          </button>
         </div>
       </div>
       {/* Tech Stack Section */}
@@ -104,6 +106,12 @@ const AboutSection = () => {
           })}
         </div>
       </div>
+
+      {/* Resume Modal */}
+      <ResumeModal 
+        isOpen={isResumeModalOpen} 
+        onClose={() => setIsResumeModalOpen(false)} 
+      />
     </section>
   );
 };

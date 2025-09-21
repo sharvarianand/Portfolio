@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import { FaGithub } from 'react-icons/fa';
 import Image from 'next/image';
-import { useTheme } from 'next-themes';
+import { useClientTheme } from '../hooks/useClientTheme';
 
 interface ProjectCardProps {
   name: string;
@@ -17,13 +17,14 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ name, description, tags, github, demo, image }: ProjectCardProps) => {
-  const { resolvedTheme } = useTheme();
+  const { resolvedTheme, mounted } = useClientTheme();
   
   let imageUrl: string;
   if (typeof image === 'string') {
     imageUrl = image;
   } else {
-    imageUrl = resolvedTheme === 'dark' ? image.dark : image.light;
+    // Default to light theme image during SSR to prevent hydration mismatch
+    imageUrl = !mounted ? image.light : (resolvedTheme === 'dark' ? image.dark : image.light);
   }
   
   const isDemoActive = demo && demo !== '#';
