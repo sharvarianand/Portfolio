@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-body antialiased bg-light-background dark:bg-background text-light-text-primary dark:text-text-primary">
+      <body className="antialiased bg-light-background dark:bg-background text-light-text-primary dark:text-text-primary" style={{ fontFamily: "'Times New Roman', serif" }}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

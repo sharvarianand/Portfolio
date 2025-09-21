@@ -33,8 +33,8 @@ const config: Config = {
         'light-border': '#e2e8f0', // Slate-200
       },
       fontFamily: {
-        heading: ['Poppins', 'Space Grotesk', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        heading: ['Times New Roman', 'serif'],
+        body: ['Times New Roman', 'serif'],
       },
       animation: {
         'gradient-x': 'gradient-x 15s ease infinite',
