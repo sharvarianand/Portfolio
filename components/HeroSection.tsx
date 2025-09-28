@@ -11,6 +11,7 @@ const HeroSection = () => {
 
   const isDarkMode = mounted && resolvedTheme === 'dark';
 
+  // Ensure consistent colors between server and client renders
   const brainGradientStops = isDarkMode 
     ? ["#06b6d4", "#3b82f6", "#6366f1", "#8b5cf6"]
     : ["#0284c7", "#2563eb", "#4f46e5", "#7c3aed"];
@@ -18,6 +19,12 @@ const HeroSection = () => {
   const personGradientStops = isDarkMode
     ? ["#3b82f6", "#8b5cf6"]
     : ["#2563eb", "#7c3aed"];
+
+  // Prevent hydration issues with random values
+  const staticParticlePositions = mounted ? null : Array.from({ length: 30 }, (_, i) => ({
+    left: `${(i * 37) % 100}%`,
+    top: `${(i * 23) % 100}%`
+  }));
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
@@ -156,17 +163,17 @@ const HeroSection = () => {
                     key={i}
                     className={`absolute w-0.5 h-0.5 rounded-full opacity-40 ${isDarkMode ? 'bg-white' : 'bg-slate-700'}`}
                     style={{
-                      left: `${Math.random() * 100}%`,
-                      top: `${Math.random() * 100}%`,
+                      left: mounted ? `${Math.random() * 100}%` : staticParticlePositions?.[i]?.left || '50%',
+                      top: mounted ? `${Math.random() * 100}%` : staticParticlePositions?.[i]?.top || '50%',
                     }}
                     animate={{
                       opacity: isDarkMode ? [0.2, 0.8, 0.2] : [0.3, 1, 0.3],
                       scale: [1, 1.5, 1],
                     }}
                     transition={{
-                      duration: Math.random() * 3 + 2,
+                      duration: mounted ? Math.random() * 3 + 2 : 3,
                       repeat: Infinity,
-                      delay: Math.random() * 2,
+                      delay: mounted ? Math.random() * 2 : 0,
                     }}
                   />
                 ))}
@@ -174,7 +181,7 @@ const HeroSection = () => {
               
               {/* Geodesic Dome Globe */}
               <div className="absolute inset-0 opacity-90">
-                <Globe />
+                {mounted && <Globe />}
               </div>
               
               {/* Central Person Icon - Inside Globe */}
@@ -241,50 +248,67 @@ const HeroSection = () => {
       {/* Starry Digital Space */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Large stars */}
-        {Array.from({ length: 40 }).map((_, i) => (
-          <motion.div
-            key={`star-${i}`}
-            className={`absolute rounded-full ${isDarkMode ? 'bg-white' : 'bg-slate-800'}`}
-            style={{
-              width: Math.random() * 2 + 1 + 'px',
-              height: Math.random() * 2 + 1 + 'px',
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              opacity: isDarkMode ? [0.2, 0.8, 0.2] : [0.4, 1, 0.4],
-              scale: [1, 1.3, 1],
-            }}
-            transition={{
-              duration: Math.random() * 4 + 3,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-            }}
-          />
-        ))}
+        {Array.from({ length: 40 }).map((_, i) => {
+          // Use deterministic values during SSR
+          const size = mounted ? Math.random() * 2 + 1 : ((i % 3) + 1);
+          const left = mounted ? Math.random() * 100 : (i * 7) % 100;
+          const top = mounted ? Math.random() * 100 : (i * 11) % 100;
+          const duration = mounted ? Math.random() * 4 + 3 : 5;
+          const delay = mounted ? Math.random() * 3 : 0;
+          
+          return (
+            <motion.div
+              key={`star-${i}`}
+              className={`absolute rounded-full ${isDarkMode ? 'bg-white' : 'bg-slate-800'}`}
+              style={{
+                width: size + 'px',
+                height: size + 'px',
+                left: `${left}%`,
+                top: `${top}%`,
+              }}
+              animate={{
+                opacity: isDarkMode ? [0.2, 0.8, 0.2] : [0.4, 1, 0.4],
+                scale: [1, 1.3, 1],
+              }}
+              transition={{
+                duration,
+                repeat: Infinity,
+                delay,
+              }}
+            />
+          );
+        })}
         
         {/* Tiny glowing particles */}
-        {Array.from({ length: 60 }).map((_, i) => (
-          <motion.div
-            key={`particle-${i}`}
-            className="absolute w-0.5 h-0.5 rounded-full"
-            style={{
-              background: `linear-gradient(45deg, ${personGradientStops[0]}, ${personGradientStops[1]})`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              opacity: isDarkMode ? [0.1, 0.6, 0.1] : [0.3, 0.8, 0.3],
-              y: [0, -20, 0],
-            }}
-            transition={{
-              duration: Math.random() * 6 + 4,
-              repeat: Infinity,
-              delay: Math.random() * 4,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
+        {Array.from({ length: 60 }).map((_, i) => {
+          // Use deterministic values during SSR
+          const left = mounted ? Math.random() * 100 : (i * 13) % 100;
+          const top = mounted ? Math.random() * 100 : (i * 17) % 100;
+          const duration = mounted ? Math.random() * 6 + 4 : 6;
+          const delay = mounted ? Math.random() * 4 : 0;
+          
+          return (
+            <motion.div
+              key={`particle-${i}`}
+              className="absolute w-0.5 h-0.5 rounded-full"
+              style={{
+                background: `linear-gradient(45deg, ${personGradientStops[0]}, ${personGradientStops[1]})`,
+                left: `${left}%`,
+                top: `${top}%`,
+              }}
+              animate={{
+                opacity: isDarkMode ? [0.1, 0.6, 0.1] : [0.3, 0.8, 0.3],
+                y: [0, -20, 0],
+              }}
+              transition={{
+                duration,
+                repeat: Infinity,
+                delay,
+                ease: "easeInOut",
+              }}
+            />
+          );
+        })}
       </div>
       
       {/* Subtle Floating Code */}
