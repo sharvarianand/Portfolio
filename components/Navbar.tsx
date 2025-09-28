@@ -1,16 +1,18 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { SunIcon, MoonIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { SunIcon, MoonIcon, Bars3Icon, XMarkIcon, DocumentTextIcon } from '@heroicons/react/24/outline';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter, usePathname } from 'next/navigation';
 import { useClientTheme } from '../hooks/useClientTheme';
+import ResumeModal from './ResumeModal';
 
 const Navbar = () => {
   const { resolvedTheme, setTheme, mounted } = useClientTheme();
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 
@@ -91,6 +93,15 @@ const Navbar = () => {
           <span className="relative z-10">{label}</span>
           </button>
       ))}
+      
+      {/* Resume Button */}
+      <button
+        onClick={() => setIsResumeModalOpen(true)}
+        className="relative px-4 py-2 rounded-xl font-heading text-sm transition-all duration-300 text-light-text-secondary dark:text-text-secondary hover:text-light-text-primary dark:hover:text-text-primary hover:bg-light-primary/10 dark:hover:bg-primary/10 flex items-center gap-1"
+      >
+        <DocumentTextIcon className="w-4 h-4" />
+        <span>Resume</span>
+      </button>
       <button
         onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
         className="ml-1 p-2 rounded-xl hover:bg-light-primary/10 dark:hover:bg-primary/10 transition-colors relative"
@@ -175,11 +186,29 @@ const Navbar = () => {
                     {label}
                   </button>
                 ))}
+                
+                {/* Mobile Resume Button */}
+                <button
+                  onClick={() => {
+                    setIsResumeModalOpen(true);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full text-left px-4 py-3 rounded-xl font-heading font-medium text-sm transition-all duration-300 text-light-text-secondary dark:text-text-secondary hover:text-light-text-primary dark:hover:text-text-primary hover:bg-light-primary/5 dark:hover:bg-primary/5 flex items-center gap-2"
+                >
+                  <DocumentTextIcon className="w-4 h-4" />
+                  Resume
+                </button>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
+
+      {/* Resume Modal */}
+      <ResumeModal 
+        isOpen={isResumeModalOpen} 
+        onClose={() => setIsResumeModalOpen(false)} 
+      />
     </>
   );
 };

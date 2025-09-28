@@ -16,8 +16,23 @@ const AboutSection = () => {
         <div className="absolute left-10 top-10 w-56 h-56 bg-gradient-to-r from-sky-400 to-indigo-500 opacity-20 blur-3xl -z-10" />
         {/* Left: Photo + badge/quote */}
         <div className="flex flex-col items-center text-center gap-4 flex-shrink-0">
-          <div className="w-36 h-36 md:w-48 md:h-48 rounded-full overflow-hidden shadow-xl border-4 border-sky-400 hover:scale-105 hover:rotate-2 transition-transform duration-300">
-            <Image src="/photo.jpg" alt="Sharvari Bhondekar" width={400} height={400} className="object-cover w-full h-full" />
+          <div className="relative w-36 h-36 md:w-48 md:h-48">
+            {/* Animated glow ring */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 rounded-full opacity-75 blur-md animate-pulse"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 rounded-full opacity-50"></div>
+            
+            {/* Photo container */}
+            <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 hover:scale-105 hover:rotate-2 transition-all duration-300 bg-white dark:bg-slate-800">
+              <Image 
+                src="/photo.jpg" 
+                alt="Sharvari Bhondekar" 
+                width={400} 
+                height={400} 
+                className="object-cover w-full h-full"
+                priority
+                loading="eager"
+              />
+            </div>
           </div>
           <span className="px-3 py-1 text-xs bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 text-white rounded-full font-semibold shadow-md mt-2">
             🚀 Currently exploring: Java and DSA
