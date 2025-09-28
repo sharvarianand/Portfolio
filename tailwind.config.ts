@@ -5,6 +5,47 @@ const config: Config = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './data/**/*.{js,ts,jsx,tsx,mdx}',
+    './hooks/**/*.{js,ts,jsx,tsx,mdx}',
+    // Safelist important patterns
+    './public/**/*.html',
+  ],
+  safelist: [
+    // Pattern-based safelisting for better coverage
+    {
+      pattern: /^(bg|text|border|from|via|to)-(slate|gray|white|black)-(50|100|200|300|400|500|600|700|800|900|950)$/,
+    },
+    {
+      pattern: /^opacity-(10|20|30|40|50|60|70|80|90)$/,
+    },
+    {
+      pattern: /^(w|h)-(0\.5|1|2|3|4|5|6|8|10|12|16|20|24)$/,
+    },
+    {
+      pattern: /^(mb|mt|ml|mr|mx|my|px|py|pl|pr|pt|pb)-(0|1|2|3|4|5|6|8|10|12|16|20|24)$/,
+    },
+    {
+      pattern: /^gap-(0|1|2|3|4|5|6|8|10|12|16|20|24)$/,
+    },
+    {
+      pattern: /^z-(0|10|20|30|40|50)$/,
+    },
+    // Specific important classes
+    'gradient-text',
+    'gradient-text-2', 
+    'gradient-text-3',
+    'bg-gradient-to-br',
+    'bg-gradient-to-r',
+    'lg:grid-cols-2',
+    'grid-cols-1',
+    'animate-float',
+    'animate-glow',
+    'animate-gradient-x',
+    // Theme classes
+    'dark:bg-background',
+    'dark:text-text-primary',
+    'bg-light-background',
+    'text-light-text-primary',
   ],
   darkMode: 'class',
   theme: {
