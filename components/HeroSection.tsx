@@ -32,7 +32,7 @@ const HeroSection = () => {
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 <span className="text-light-text-primary dark:text-text-primary block mb-2">
-                  Hi, I'm
+                  Hi, I&apos;m
                 </span>
                 <span className="gradient-text block">
                   Sharvari Bhondekar
@@ -60,7 +60,7 @@ const HeroSection = () => {
               transition={{ duration: 1.2, delay: 0.4 }}
               className="text-base md:text-lg text-light-text-secondary dark:text-text-secondary leading-relaxed max-w-xl"
             >
-              I'm passionate about crafting high-quality software, solving real-world problems, 
+              I&apos;m passionate about crafting high-quality software, solving real-world problems, 
               and continuously learning new technologies especially in the field of Artificial Intelligence. 
               My goal is to create impactful products that make a difference.
             </motion.p>
@@ -92,7 +92,7 @@ const HeroSection = () => {
               transition={{ duration: 1.6, delay: 0.8 }}
               className="flex flex-wrap gap-3 pt-4"
             >
-              {['React', 'Next.js', 'Python', 'AI/ML', 'TypeScript', 'Node.js'].map((tech, index) => (
+              {['React', 'Next.js', 'Python', 'AI/ML', 'TypeScript', 'Node.js'].map((tech) => (
                 <span
                   key={tech}
                   className="px-3 py-1 text-sm rounded-full bg-light-primary/10 dark:bg-primary/10 border border-light-primary/20 dark:border-primary/20 text-light-primary dark:text-primary font-medium"
