@@ -3,7 +3,7 @@
 <div align="center">
   <img src="public/photo.jpg" alt="Sharvari Bhondekar" width="200" style="border-radius: 50%"/>
   
-  [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-purple?style=for-the-badge)](https://sharvaribhondekarportfolio.netlify.app/)
+  [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-purple?style=for-the-badge)](https://sharvaribhondekarportfolio.vercel.app/)
   [![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github)](https://github.com/sharvarianand)
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/sharvari-bhondekar-872a7a282?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BMO9bNY0KS8CSysAO%2BRQeRA%3D%3D)
 </div>
