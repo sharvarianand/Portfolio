@@ -1,14 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Ensure proper static optimization for Netlify
+  // Optimize for Vercel deployment
   images: {
+    unoptimized: true, // Set to false to use Vercel's image optimization
     domains: [], // Add any external image domains here
-  },
-  
-  // Ensure proper ESLint configuration
-  eslint: {
-    ignoreDuringBuilds: false,
   },
   
   // Keep experimental features minimal for stability
