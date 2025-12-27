@@ -36,7 +36,7 @@ export const projects = [
     description: 'Modern, responsive portfolio website built with Next.js and Tailwind CSS, featuring dark/light mode, animations, and professional presentation.',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Responsive Design'],
     github: 'https://github.com/sharvarianand/Portfolio',
-    demo: 'https://sharvaribhondekarportfolio.netlify.app',
+    demo: 'https://sharvaribhondekarportfolio.vercel.app',
     image: {
       dark: '/portfolio%20live%20dark.png',
       light: '/portfolio%20live%20light.png'

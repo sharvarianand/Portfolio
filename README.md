@@ -12,7 +12,7 @@
 
 Welcome to my portfolio website repository! This is a modern, responsive web application built with Next.js and TypeScript, showcasing my projects and skills as a Full Stack Developer and AI enthusiast. The site features a clean, modern design with a 3D interactive globe and smooth animations.
 
-**Visit the live site: [sharvari.dev](https://sharvaribhondekarportfolio.netlify.app/)** 
+**Visit the live site: [sharvaribhondekarportfolio.vercel.app](https://sharvaribhondekarportfolio.vercel.app/)** 
 
 ## ✨ Features
 
@@ -38,7 +38,7 @@ This project is built with a modern technology stack:
 - **UI Components:** [Headless UI](https://headlessui.com/) for accessible components
 - **Icons:** [Heroicons](https://heroicons.com/), [React Icons](https://react-icons.github.io/react-icons/)
 - **Theme:** [Next Themes](https://github.com/pacocoursey/next-themes) for dark/light mode
-- **Deployment:** [Netlify](https://www.netlify.com/)
+- **Deployment:** [Vercel](https://vercel.com/)
 
 ## 🚀 Getting Started
 
@@ -133,13 +133,12 @@ The portfolio is fully responsive and optimized for:
 
 ## 🚀 Deployment
 
-This site is deployed on Netlify. To deploy your own version:
+This site is deployed on Vercel. To deploy your own version:
 
 1. Fork this repository
-2. Create a new site on Netlify
-3. Connect your forked repository
-4. Set up build settings (Build command: `npm run build`, Publish directory: `out`)
-5. Deploy!
+2. Import your forked repository to [Vercel](https://vercel.com/new)
+3. Vercel will automatically detect Next.js and configure the build settings
+4. Deploy!
 
 ## ✏️ Content Updates
 
