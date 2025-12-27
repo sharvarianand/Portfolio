@@ -117,39 +117,183 @@ const HeroSection = () => {
             transition={{ duration: 1, delay: 0.3 }}
             className="relative flex flex-col justify-center items-center"
           >
-            {/* Brain/Circuit Icon - Above Globe */}
+            {/* Quantum Neural Icon - Above Globe */}
             <motion.div
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1.2, delay: 1.2 }}
-              className="relative z-20 mb-4" // Positioned above
+              initial={{ scale: 0, opacity: 0, rotateY: -180 }}
+              animate={{ scale: 1, opacity: 1, rotateY: 0 }}
+              transition={{ duration: 1.2, delay: 1.2, type: "spring" }}
+              className="relative z-20 mb-4"
             >
               <div className="relative">
-                {/* Subtle glow effect */}
-                <div className="absolute -inset-2 w-24 h-24 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-lg opacity-30"></div>
+                {/* Multi-layer holographic glow */}
+                <motion.div
+                  className="absolute -inset-4 w-32 h-32 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 rounded-full blur-2xl"
+                  animate={{
+                    scale: [1, 1.3, 1],
+                    opacity: [0.3, 0.6, 0.3],
+                    rotate: [0, 360],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                />
+                <motion.div
+                  className="absolute -inset-2 w-28 h-28 bg-gradient-to-l from-purple-500 via-pink-500 to-cyan-400 rounded-full blur-xl"
+                  animate={{
+                    scale: [1.2, 1, 1.2],
+                    opacity: [0.2, 0.4, 0.2],
+                    rotate: [360, 0],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                />
                 
-                {/* Brain/Circuit Icon */}
-                <svg width="80" height="80" viewBox="0 0 80 80" className="relative z-10">
-                  <g fill="none" stroke="url(#brainGradient)" strokeWidth="1.5">
-                    <circle cx="40" cy="40" r="12" opacity="0.9" />
-                    <circle cx="40" cy="40" r="6" fill="url(#brainGradient)" opacity="0.2" />
-                    <path d="M28 40 L16 28 M52 40 L64 28 M40 28 L40 16 M28 52 L16 64 M52 52 L64 64 M40 52 L40 64" />
-                    <path d="M32 32 L20 20 M48 32 L60 20 M32 48 L20 60 M48 48 L60 60" opacity="0.7" />
-                    <circle cx="16" cy="28" r="2.5" fill="url(#brainGradient)" opacity="0.8" />
-                    <circle cx="64" cy="28" r="2.5" fill="url(#brainGradient)" opacity="0.8" />
-                    <circle cx="40" cy="16" r="2.5" fill="url(#brainGradient)" opacity="0.8" />
-                    <circle cx="16" cy="64" r="2.5" fill="url(#brainGradient)" opacity="0.8" />
-                    <circle cx="64" cy="64" r="2.5" fill="url(#brainGradient)" opacity="0.8" />
-                    <circle cx="40" cy="64" r="2.5" fill="url(#brainGradient)" opacity="0.8" />
-                  </g>
+                {/* Quantum Neural Network Icon */}
+                <svg width="100" height="100" viewBox="0 0 100 100" className="relative z-10">
                   <defs>
-                    <linearGradient id="brainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <linearGradient id="neuralGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor={brainGradientStops[0]} />
-                      <stop offset="30%" stopColor={brainGradientStops[1]} />
-                      <stop offset="70%" stopColor={brainGradientStops[2]} />
+                      <stop offset="33%" stopColor={brainGradientStops[1]} />
+                      <stop offset="66%" stopColor={brainGradientStops[2]} />
                       <stop offset="100%" stopColor={brainGradientStops[3]} />
                     </linearGradient>
+                    <filter id="neuralGlow">
+                      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                      <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                    <radialGradient id="coreGlow">
+                      <stop offset="0%" stopColor={brainGradientStops[1]} stopOpacity="0.8"/>
+                      <stop offset="100%" stopColor={brainGradientStops[3]} stopOpacity="0.2"/>
+                    </radialGradient>
                   </defs>
+                  
+                  <g filter="url(#neuralGlow)">
+                    {/* Outer hexagonal ring */}
+                    <path
+                      d="M50,10 L75,25 L75,55 L50,70 L25,55 L25,25 Z"
+                      stroke="url(#neuralGradient)"
+                      strokeWidth="2"
+                      fill="none"
+                      opacity="0.7"
+                    >
+                      <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 50 40"
+                        to="360 50 40"
+                        dur="20s"
+                        repeatCount="indefinite"
+                      />
+                    </path>
+                    
+                    {/* Middle diamond */}
+                    <path
+                      d="M50,20 L65,40 L50,60 L35,40 Z"
+                      stroke="url(#neuralGradient)"
+                      strokeWidth="2"
+                      fill="url(#coreGlow)"
+                      opacity="0.5"
+                    >
+                      <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="360 50 40"
+                        to="0 50 40"
+                        dur="15s"
+                        repeatCount="indefinite"
+                      />
+                    </path>
+                    
+                    {/* Central core */}
+                    <circle cx="50" cy="40" r="12" fill="url(#neuralGradient)" opacity="0.4" />
+                    <circle cx="50" cy="40" r="8" fill="url(#coreGradient)" />
+                    
+                    {/* Neural nodes - Outer layer */}
+                    <circle cx="50" cy="10" r="3" fill="url(#neuralGradient)" opacity="0.9">
+                      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="75" cy="25" r="3" fill="url(#neuralGradient)" opacity="0.9">
+                      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" begin="0.3s" />
+                    </circle>
+                    <circle cx="75" cy="55" r="3" fill="url(#neuralGradient)" opacity="0.9">
+                      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" begin="0.6s" />
+                    </circle>
+                    <circle cx="50" cy="70" r="3" fill="url(#neuralGradient)" opacity="0.9">
+                      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" begin="0.9s" />
+                    </circle>
+                    <circle cx="25" cy="55" r="3" fill="url(#neuralGradient)" opacity="0.9">
+                      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" begin="1.2s" />
+                    </circle>
+                    <circle cx="25" cy="25" r="3" fill="url(#neuralGradient)" opacity="0.9">
+                      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" begin="1.5s" />
+                    </circle>
+                    
+                    {/* Neural connections with animation */}
+                    <line x1="50" y1="10" x2="50" y2="40" stroke="url(#neuralGradient)" strokeWidth="1.5" opacity="0.5">
+                      <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3s" repeatCount="indefinite" />
+                    </line>
+                    <line x1="75" y1="25" x2="50" y2="40" stroke="url(#neuralGradient)" strokeWidth="1.5" opacity="0.5">
+                      <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3s" repeatCount="indefinite" begin="0.5s" />
+                    </line>
+                    <line x1="75" y1="55" x2="50" y2="40" stroke="url(#neuralGradient)" strokeWidth="1.5" opacity="0.5">
+                      <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3s" repeatCount="indefinite" begin="1s" />
+                    </line>
+                    <line x1="50" y1="70" x2="50" y2="40" stroke="url(#neuralGradient)" strokeWidth="1.5" opacity="0.5">
+                      <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3s" repeatCount="indefinite" begin="1.5s" />
+                    </line>
+                    <line x1="25" y1="55" x2="50" y2="40" stroke="url(#neuralGradient)" strokeWidth="1.5" opacity="0.5">
+                      <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3s" repeatCount="indefinite" begin="2s" />
+                    </line>
+                    <line x1="25" y1="25" x2="50" y2="40" stroke="url(#neuralGradient)" strokeWidth="1.5" opacity="0.5">
+                      <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3s" repeatCount="indefinite" begin="2.5s" />
+                    </line>
+                    
+                    {/* Data particles flowing */}
+                    <circle r="1.5" fill={brainGradientStops[0]}>
+                      <animateMotion dur="2s" repeatCount="indefinite" path="M50,10 L50,40" />
+                    </circle>
+                    <circle r="1.5" fill={brainGradientStops[2]}>
+                      <animateMotion dur="2s" repeatCount="indefinite" begin="0.5s" path="M75,25 L50,40" />
+                    </circle>
+                    <circle r="1.5" fill={brainGradientStops[1]}>
+                      <animateMotion dur="2s" repeatCount="indefinite" begin="1s" path="M75,55 L50,40" />
+                    </circle>
+                    
+                    {/* AI Text in center */}
+                    <text x="50" y="43" textAnchor="middle" fontSize="8" fill={isDarkMode ? brainGradientStops[0] : "#1e293b"} fontWeight="bold" opacity="1" stroke={isDarkMode ? "none" : "#fff"} strokeWidth={isDarkMode ? "0" : "0.5"}>AI</text>
+                  </g>
+                  
+                  {/* Orbiting data points */}
+                  <circle r="2" fill={brainGradientStops[0]} opacity="0.8">
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      from="0 50 40"
+                      to="360 50 40"
+                      dur="3s"
+                      repeatCount="indefinite"
+                    />
+                    <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite" />
+                  </circle>
+                  <circle r="2" fill={brainGradientStops[3]} opacity="0.8">
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      from="180 50 40"
+                      to="540 50 40"
+                      dur="3s"
+                      repeatCount="indefinite"
+                    />
+                    <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite" begin="0.75s" />
+                  </circle>
                 </svg>
               </div>
             </motion.div>
@@ -184,7 +328,7 @@ const HeroSection = () => {
                 {mounted && <Globe />}
               </div>
               
-              {/* Central Person Icon - Inside Globe */}
+              {/* Futuristic Developer with Holographic Setup - Inside Globe */}
               <div className="absolute inset-0 flex items-center justify-center z-10">
                 <motion.div
                   initial={{ scale: 0, opacity: 0 }}
@@ -192,14 +336,19 @@ const HeroSection = () => {
                   transition={{ duration: 1.2, delay: 0.8 }}
                   className="relative"
                 >
-                  <svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="170" height="170" viewBox="0 0 170 170" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                      <linearGradient id="personGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <linearGradient id="futuristicGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor={personGradientStops[0]} />
                         <stop offset="100%" stopColor={personGradientStops[1]} />
                       </linearGradient>
-                      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                        <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                      <linearGradient id="hologramGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.8" />
+                        <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.6" />
+                        <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.8" />
+                      </linearGradient>
+                      <filter id="hologramGlow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
                         <feMerge>
                           <feMergeNode in="coloredBlur"/>
                           <feMergeNode in="SourceGraphic"/>
@@ -207,31 +356,171 @@ const HeroSection = () => {
                       </filter>
                     </defs>
                     
-                    <g filter="url(#glow)" opacity={isDarkMode ? 0.8 : 0.9}>
-                      {/* Person */}
-                      <g stroke="url(#personGradient)" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
-                        {/* Head */}
-                        <circle cx="75" cy="40" r="12" />
-                        {/* Body */}
-                        <path d="M75 52 V 90" />
-                        {/* Chair */}
-                        <path d="M50 110 H 100" />
-                        <path d="M50 110 V 80 H 100 V 110" />
-                        <path d="M75 110 V 125" />
-                        <path d="M65 125 H 85" />
+                    <g filter="url(#hologramGlow)" opacity={isDarkMode ? 0.9 : 0.95}>
+                      {/* Ergonomic futuristic chair */}
+                      <g stroke="url(#futuristicGradient)" strokeWidth="2.5" fill="url(#futuristicGradient)" fillOpacity="0.4">
+                        <path d="M55 115 Q 50 110 50 100 L50 75 Q50 70 55 68" strokeLinecap="round" />
+                        <path d="M115 115 Q 120 110 120 100 L120 75 Q120 70 115 68" strokeLinecap="round" />
+                        <ellipse cx="85" cy="115" rx="30" ry="5" fill="url(#futuristicGradient)" opacity="0.6" />
+                        <path d="M70 130 L70 145 M100 130 L100 145" strokeLinecap="round" fill="none" />
+                        <path d="M65 145 L75 145 M95 145 L105 145" strokeWidth="3" strokeLinecap="round" fill="none" />
                       </g>
                       
-                      {/* Laptop */}
-                      <g fill="url(#personGradient)">
-                        <rect x="85" y="75" width="40" height="25" rx="2" transform="rotate(-15 85 75)" />
-                        <path d="M80 105 H 130 L 125 110 H 85 Z" />
+                      {/* Person with VR/AR headset */}
+                      <g stroke="url(#futuristicGradient)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        {/* Head with futuristic headset */}
+                        <circle cx="85" cy="45" r="14" fill="url(#futuristicGradient)" fillOpacity="0.5" stroke="url(#futuristicGradient)" strokeWidth="2" />
+                        {/* VR Headset band */}
+                        <path d="M71 45 Q 71 38 85 38 Q 99 38 99 45" strokeWidth="4" fill="url(#futuristicGradient)" fillOpacity="0.3" />
+                        <rect x="75" y="42" width="20" height="8" rx="2" fill="url(#hologramGradient)" opacity="0.8" stroke="url(#futuristicGradient)" strokeWidth="1.5" />
+                        {/* Headset details */}
+                        <circle cx="80" cy="46" r="2" fill={personGradientStops[0]} opacity="1">
+                          <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" />
+                        </circle>
+                        <circle cx="90" cy="46" r="2" fill={personGradientStops[0]} opacity="1">
+                          <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" begin="1s" />
+                        </circle>
+                        
+                        {/* Body */}
+                        <path d="M85 59 L85 95" strokeWidth="4" stroke="url(#futuristicGradient)" fill="none" />
+                        
+                        {/* Arms - coding position */}
+                        <path d="M85 70 L65 75 L60 90" strokeWidth="3.5" fill="none" />
+                        <path d="M85 70 L105 75 L110 90" strokeWidth="3.5" fill="none" />
+                        
+                        {/* Hands on holographic keyboard */}
+                        <circle cx="60" cy="90" r="4" fill="url(#futuristicGradient)" opacity="0.9" />
+                        <circle cx="110" cy="90" r="4" fill="url(#futuristicGradient)" opacity="0.9" />
+                        
+                        {/* Legs */}
+                        <path d="M85 95 L75 115" strokeWidth="3.5" fill="none" />
+                        <path d="M85 95 L95 115" strokeWidth="3.5" fill="none" />
                       </g>
-
-                      {/* Emanating Lines */}
-                      <g stroke="url(#personGradient)" strokeWidth="1.5" opacity="0.7">
-                        <path d="M88 72 L95 60" />
-                        <path d="M93 70 L103 55" />
-                        <path d="M98 68 L111 50" />
+                      
+                      {/* Holographic floating screens */}
+                      <g opacity="0.9">
+                        {/* Left holographic screen */}
+                        <g transform="rotate(-25 45 65)">
+                          <rect x="30" y="55" width="30" height="22" rx="1" stroke="url(#hologramGradient)" strokeWidth="2" fill="url(#hologramGradient)" fillOpacity="0.3" />
+                          <line x1="33" y1="60" x2="50" y2="60" stroke="url(#hologramGradient)" strokeWidth="1.5" opacity="0.8">
+                            <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" repeatCount="indefinite" />
+                          </line>
+                          <line x1="33" y1="64" x2="55" y2="64" stroke="url(#hologramGradient)" strokeWidth="1.5" opacity="0.8">
+                            <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" repeatCount="indefinite" begin="0.3s" />
+                          </line>
+                          <line x1="33" y1="68" x2="48" y2="68" stroke="url(#hologramGradient)" strokeWidth="1.5" opacity="0.8">
+                            <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" repeatCount="indefinite" begin="0.6s" />
+                          </line>
+                          <circle cx="35" cy="72" r="1.5" fill="url(#hologramGradient)">
+                            <animate attributeName="opacity" values="0.7;1;0.7" dur="1s" repeatCount="indefinite" />
+                          </circle>
+                        </g>
+                        
+                        {/* Center main holographic display */}
+                        <rect x="65" y="48" width="40" height="30" rx="2" stroke="url(#hologramGradient)" strokeWidth="2.5" fill="url(#hologramGradient)" fillOpacity="0.35" />
+                        <g opacity="0.9">
+                          <text x="70" y="58" fontSize="4" fill="url(#hologramGradient)" fontWeight="bold">&lt;code/&gt;</text>
+                          <line x1="68" y1="62" x2="88" y2="62" stroke="url(#hologramGradient)" strokeWidth="2">
+                            <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" />
+                          </line>
+                          <line x1="68" y1="66" x2="98" y2="66" stroke="url(#hologramGradient)" strokeWidth="2">
+                            <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.3s" />
+                          </line>
+                          <line x1="68" y1="70" x2="92" y2="70" stroke="url(#hologramGradient)" strokeWidth="2">
+                            <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.6s" />
+                          </line>
+                        </g>
+                        
+                        {/* Right holographic screen */}
+                        <g transform="rotate(25 125 65)">
+                          <rect x="110" y="55" width="30" height="22" rx="1" stroke="url(#hologramGradient)" strokeWidth="2" fill="url(#hologramGradient)" fillOpacity="0.3" />
+                          {/* Data visualization */}
+                          <rect x="113" y="60" width="3" height="12" fill="url(#hologramGradient)" opacity="0.7">
+                            <animate attributeName="height" values="8;12;8" dur="1.5s" repeatCount="indefinite" />
+                          </rect>
+                          <rect x="118" y="63" width="3" height="9" fill="url(#hologramGradient)" opacity="0.7">
+                            <animate attributeName="height" values="6;9;6" dur="1.5s" repeatCount="indefinite" begin="0.3s" />
+                          </rect>
+                          <rect x="123" y="58" width="3" height="14" fill="url(#hologramGradient)" opacity="0.7">
+                            <animate attributeName="height" values="10;14;10" dur="1.5s" repeatCount="indefinite" begin="0.6s" />
+                          </rect>
+                          <rect x="128" y="61" width="3" height="11" fill="url(#hologramGradient)" opacity="0.7">
+                            <animate attributeName="height" values="7;11;7" dur="1.5s" repeatCount="indefinite" begin="0.9s" />
+                          </rect>
+                        </g>
+                      </g>
+                      
+                      {/* Holographic keyboard with glow */}
+                      <g>
+                        <ellipse cx="85" cy="95" rx="28" ry="6" stroke="url(#hologramGradient)" strokeWidth="2" fill="url(#hologramGradient)" fillOpacity="0.4" />
+                        <g opacity="0.8">
+                          {/* Key rows */}
+                          <rect x="63" y="92" width="4" height="3" rx="0.5" fill="url(#hologramGradient)" opacity="0.9" />
+                          <rect x="69" y="92" width="4" height="3" rx="0.5" fill="url(#hologramGradient)" opacity="0.9" />
+                          <rect x="75" y="92" width="4" height="3" rx="0.5" fill="url(#hologramGradient)" opacity="0.9" />
+                          <rect x="81" y="92" width="4" height="3" rx="0.5" fill="url(#hologramGradient)" opacity="0.9" />
+                          <rect x="87" y="92" width="4" height="3" rx="0.5" fill="url(#hologramGradient)" opacity="0.9" />
+                          <rect x="93" y="92" width="4" height="3" rx="0.5" fill="url(#hologramGradient)" opacity="0.9" />
+                          <rect x="99" y="92" width="4" height="3" rx="0.5" fill="url(#hologramGradient)" opacity="0.9" />
+                          
+                          <rect x="66" y="96" width="4" height="3" rx="0.5" fill="url(#hologramGradient)" opacity="0.9" />
+                          <rect x="72" y="96" width="4" height="3" rx="0.5" fill="url(#hologramGradient)" opacity="0.9" />
+                          <rect x="78" y="96" width="4" height="3" rx="0.5" fill="url(#hologramGradient)" opacity="0.9" />
+                          <rect x="84" y="96" width="4" height="3" rx="0.5" fill="url(#hologramGradient)" opacity="0.9" />
+                          <rect x="90" y="96" width="4" height="3" rx="0.5" fill="url(#hologramGradient)" opacity="0.9" />
+                          <rect x="96" y="96" width="4" height="3" rx="0.5" fill="url(#hologramGradient)" opacity="0.9" />
+                        </g>
+                      </g>
+                      
+                      {/* Floating data particles and code snippets */}
+                      <g opacity="0.7">
+                        {/* Neural network connections */}
+                        <circle cx="35" cy="40" r="2" fill="url(#hologramGradient)">
+                          <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" />
+                        </circle>
+                        <circle cx="42" cy="48" r="2" fill="url(#hologramGradient)">
+                          <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="0.4s" />
+                        </circle>
+                        <circle cx="38" cy="52" r="2" fill="url(#hologramGradient)">
+                          <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="0.8s" />
+                        </circle>
+                        <line x1="35" y1="40" x2="42" y2="48" stroke="url(#hologramGradient)" strokeWidth="0.5" opacity="0.4" />
+                        <line x1="42" y1="48" x2="38" y2="52" stroke="url(#hologramGradient)" strokeWidth="0.5" opacity="0.4" />
+                        <line x1="38" y1="52" x2="35" y2="40" stroke="url(#hologramGradient)" strokeWidth="0.5" opacity="0.4" />
+                        
+                        {/* Floating code symbols */}
+                        <text x="125" y="38" fontSize="6" fill="url(#hologramGradient)" opacity="0.6">
+                          <animate attributeName="y" values="38;33;38" dur="3s" repeatCount="indefinite" />
+                          {'{ }'}
+                        </text>
+                        <text x="130" y="48" fontSize="5" fill="url(#hologramGradient)" opacity="0.6">
+                          <animate attributeName="y" values="48;43;48" dur="3s" repeatCount="indefinite" begin="0.5s" />
+                          01
+                        </text>
+                        <text x="133" y="55" fontSize="5" fill="url(#hologramGradient)" opacity="0.6">
+                          <animate attributeName="y" values="55;50;55" dur="3s" repeatCount="indefinite" begin="1s" />
+                          AI
+                        </text>
+                      </g>
+                      
+                      {/* Energy/data flow lines */}
+                      <g opacity="0.4">
+                        <path
+                          d="M45 85 Q 50 80 55 85"
+                          stroke="url(#hologramGradient)"
+                          strokeWidth="1"
+                          fill="none"
+                        >
+                          <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2s" repeatCount="indefinite" />
+                        </path>
+                        <path
+                          d="M115 85 Q 120 80 125 85"
+                          stroke="url(#hologramGradient)"
+                          strokeWidth="1"
+                          fill="none"
+                        >
+                          <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2s" repeatCount="indefinite" begin="0.5s" />
+                        </path>
                       </g>
                     </g>
                   </svg>
