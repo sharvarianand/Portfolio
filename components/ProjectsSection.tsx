@@ -4,49 +4,40 @@ import { projects } from '../data/projects';
 import ProjectCard from './ProjectCard';
 import { motion } from 'framer-motion';
 
+import { ContainerScroll } from './ui/container-scroll-animation';
+
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-16 px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="max-w-6xl mx-auto w-full"
+    <section id="projects">
+      <ContainerScroll
+        titleComponent={
+          <div className="flex flex-col gap-2 mb-10">
+            <h2 className="text-4xl md:text-6xl font-heading font-bold gradient-text">
+              Featured Projects
+            </h2>
+            <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">
+              A showcase of my recent work, from mobile apps to AI integrations.
+            </p>
+          </div>
+        }
       >
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="font-heading text-4xl md:text-5xl gradient-text mb-4 text-left"
-        >
-          From Concept to Creation:<br /><span className="font-bold">My Featured Projects</span>
-        </motion.h2>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-lg text-light-text-secondary dark:text-text-secondary mb-12 max-w-3xl text-left"
-        >
-          Here are some of the projects I&apos;m proud to have worked on. Each one represents a challenge I was excited to tackle.
-        </motion.p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="h-full"
-            >
-              <ProjectCard {...project} />
-            </motion.div>
-          ))}
+        <div className="p-4 md:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="h-full"
+              >
+                <ProjectCard {...project} />
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </motion.div>
+      </ContainerScroll>
     </section>
   );
 };

@@ -4,14 +4,15 @@ import { certificates } from '../../data/certificates';
 import { motion } from 'framer-motion';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import Navbar from '../../components/Navbar';
+import { GlowingEffect } from '../../components/ui/glowing-effect';
 
 const CertificatesPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  
+
   const categories = ['All', ...Array.from(new Set(certificates.map(cert => cert.category)))];
-  
-  const filteredCertificates = selectedCategory === 'All' 
-    ? certificates 
+
+  const filteredCertificates = selectedCategory === 'All'
+    ? certificates
     : certificates.filter(cert => cert.category === selectedCategory);
 
   return (
@@ -44,11 +45,10 @@ const CertificatesPage = () => {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 rounded-full font-heading font-semibold transition-all duration-300 ${
-                selectedCategory === category
-                  ? 'bg-gradient-light-primary dark:bg-gradient-primary text-white shadow-lg'
-                  : 'bg-light-surface dark:bg-surface text-light-text-primary dark:text-text-primary border border-light-border dark:border-border hover:border-primary'
-              }`}
+              className={`px-6 py-3 rounded-full font-heading font-semibold transition-all duration-300 ${selectedCategory === category
+                ? 'bg-gradient-to-r from-black via-gray-800 to-gray-900 dark:from-white dark:via-gray-200 dark:to-gray-100 text-white dark:text-black shadow-lg'
+                : 'bg-black/40 dark:bg-black/60 text-light-text-primary dark:text-text-primary border border-white/5 dark:border-white/10 hover:border-white/50'
+                }`}
             >
               {category}
             </button>
@@ -63,8 +63,16 @@ const CertificatesPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-light-surface dark:bg-surface rounded-2xl p-6 border border-light-border dark:border-border hover:border-primary transition-all duration-300 hover:shadow-xl"
+              className="group relative bg-black/40 dark:bg-black/60 rounded-2xl p-6 border border-white/5 dark:border-white/10 hover:border-primary transition-all duration-300 hover:shadow-xl"
             >
+              <GlowingEffect
+                spread={40}
+                glow={true}
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                borderWidth={2}
+              />
               {/* Certificate Icon */}
               <div className="text-4xl mb-4 text-center">
                 {certificate.icon}
@@ -82,7 +90,7 @@ const CertificatesPage = () => {
                   <span className="px-3 py-1 bg-light-surface-secondary dark:bg-surface-secondary rounded-full text-light-text-secondary dark:text-text-secondary">
                     {certificate.category}
                   </span>
-                  <span className="px-3 py-1 bg-primary/10 text-primary rounded-full font-semibold">
+                  <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-light-text-primary dark:text-text-primary rounded-full font-semibold">
                     {certificate.year}
                   </span>
                 </div>
@@ -94,7 +102,7 @@ const CertificatesPage = () => {
                   href={certificate.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-light-primary dark:bg-gradient-primary text-white rounded-lg font-heading font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-black via-gray-800 to-gray-900 dark:from-white dark:via-gray-200 dark:to-gray-100 text-white dark:text-black rounded-lg font-heading font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
                 >
                   <FaExternalLinkAlt size={16} />
                   View Certificate
@@ -102,7 +110,7 @@ const CertificatesPage = () => {
               </div>
 
               {/* Hover Effect */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
             </motion.div>
           ))}
         </div>

@@ -7,7 +7,7 @@ import { useClientTheme } from '../hooks/useClientTheme';
 const GeodesicDome = ({ isDarkMode }: { isDarkMode: boolean }) => {
   const meshRef = useRef<THREE.LineSegments>(null!);
   const particlesRef = useRef<THREE.Points>(null!);
-  
+
   useFrame((state) => {
     if (meshRef.current) {
       meshRef.current.rotation.y += 0.002;
@@ -28,17 +28,17 @@ const GeodesicDome = ({ isDarkMode }: { isDarkMode: boolean }) => {
     const geometry = new THREE.BufferGeometry();
     const particleCount = 80;
     const positions = new Float32Array(particleCount * 3);
-    
+
     for (let i = 0; i < particleCount; i++) {
       const radius = 3.5 + Math.random() * 1;
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
-      
+
       positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
       positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
       positions[i * 3 + 2] = radius * Math.cos(phi);
     }
-    
+
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     return geometry;
   }, []);
@@ -57,7 +57,7 @@ const GeodesicDome = ({ isDarkMode }: { isDarkMode: boolean }) => {
   return (
     <group>
       <lineSegments ref={meshRef} geometry={domeGeometry} material={domeMaterial} />
-      
+
       <points ref={particlesRef} geometry={particlesGeometry}>
         <pointsMaterial
           color={particleColor}
@@ -67,7 +67,7 @@ const GeodesicDome = ({ isDarkMode }: { isDarkMode: boolean }) => {
           sizeAttenuation={true}
         />
       </points>
-      
+
       <mesh>
         <sphereGeometry args={[2.3, 32, 32]} />
         <meshBasicMaterial
@@ -88,7 +88,7 @@ const Globe = () => {
   const light2Color = isDarkMode ? '#8b5cf6' : '#7c3aed';
 
   return (
-    <Canvas 
+    <Canvas
       camera={{ position: [0, 0, 6], fov: 60 }}
       style={{ background: 'transparent' }}
     >

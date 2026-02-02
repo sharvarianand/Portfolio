@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 @layer base {
-html {
+  html {
     @apply scroll-smooth;
-}
+  }
 
-body {
+  body {
     @apply bg-light-background text-light-text-primary dark:bg-background dark:text-text-primary;
     font-family: 'Times New Roman', serif;
   }
@@ -17,26 +17,31 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   @apply bg-light-primary/10 dark:bg-primary/10;
 }
+
 ::-webkit-scrollbar-thumb {
   @apply rounded-full;
-  background: linear-gradient(45deg, #0ea5e9, #4f46e5);
+  background: linear-gradient(45deg, #666666, #999999);
 }
+
 .dark ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #38bdf8, #6366f1);
+  background: linear-gradient(45deg, #cccccc, #ffffff);
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #4f46e5, #8b5cf6);
+  background: linear-gradient(45deg, #999999, #cccccc);
 }
+
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #6366f1, #7c3aed);
+  background: linear-gradient(45deg, #ffffff, #e5e5e5);
 }
 
 /* Gradient text needs to be defined for light/dark modes */
 .gradient-text {
-  @apply bg-gradient-to-r from-sky-400 via-purple-500 to-fuchsia-500 text-transparent bg-clip-text;
+  @apply bg-gradient-to-r from-black via-gray-700 to-gray-900 dark:from-white dark:via-gray-300 dark:to-gray-100 text-transparent bg-clip-text;
 }
 
 .font-heading {
@@ -63,14 +68,14 @@ body {
 
 /* Gradient text effects */
 .gradient-text-2 {
-  background: linear-gradient(135deg, #7c3aed 0%, #0ea5e9 50%, #38bdf8 100%);
+  background: linear-gradient(135deg, #333333 0%, #666666 50%, #999999 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-3 {
-  background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 50%, #6366f1 100%);
+  background: linear-gradient(135deg, #000000 0%, #4d4d4d 50%, #808080 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -78,27 +83,42 @@ body {
 
 /* Animated gradient backgrounds */
 .gradient-bg {
-  background: linear-gradient(-45deg, #38bdf8, #6366f1, #7c3aed, #0ea5e9);
+  background: linear-gradient(-45deg, #ffffff, #e5e5e5, #cccccc, #b3b3b3);
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
 }
 
 .gradient-bg-2 {
-  background: linear-gradient(-45deg, #0ea5e9, #38bdf8, #6366f1, #7c3aed);
+  background: linear-gradient(-45deg, #b3b3b3, #cccccc, #e5e5e5, #ffffff);
   background-size: 400% 400%;
   animation: gradientShift 20s ease infinite;
 }
 
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Floating animation */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 .float {
@@ -117,11 +137,11 @@ body {
 
 /* Glow effects */
 .glow {
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .glow-text {
-  text-shadow: 0 0 20px rgba(56, 189, 248, 0.8);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
 /* Particle effect */
@@ -139,7 +159,7 @@ body {
   position: absolute;
   width: 2px;
   height: 2px;
-  background: rgba(56, 189, 248, 0.5);
+  background: rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   animation: particleFloat 20s linear infinite;
 }
@@ -149,12 +169,15 @@ body {
     transform: translateY(100vh) rotate(0deg);
     opacity: 0;
   }
+
   10% {
     opacity: 1;
   }
+
   90% {
     opacity: 1;
   }
+
   100% {
     transform: translateY(-100px) rotate(360deg);
     opacity: 0;
@@ -163,7 +186,7 @@ body {
 
 /* Custom button styles */
 .btn-primary {
-  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+  background: linear-gradient(135deg, #000000 0%, #333333 100%);
   border: none;
   color: white;
   padding: 12px 32px;
@@ -191,7 +214,7 @@ body {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* Card hover effects */
@@ -201,18 +224,18 @@ body {
 
 .card-hover:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* Skill bar animations */
 .skill-bar {
-  background: rgba(56, 189, 248, 0.1);
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
 }
 
 .skill-progress {
-  background: linear-gradient(90deg, #38bdf8, #6366f1);
+  background: linear-gradient(90deg, #000000, #333333);
   height: 100%;
   border-radius: 10px;
   position: relative;
@@ -231,8 +254,13 @@ body {
 }
 
 @keyframes shimmer {
-  0% { left: -100%; }
-  100% { left: 100%; }
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
 }
 
 /* Responsive adjustments */
@@ -241,9 +269,9 @@ body {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
   }
-  
+
   .gradient-text {
-    background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+    background: linear-gradient(135deg, #000000 0%, #4d4d4d 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -256,6 +284,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -267,6 +296,7 @@ body {
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -278,6 +308,7 @@ body {
     opacity: 0;
     transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);

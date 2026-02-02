@@ -32,7 +32,7 @@ const config: Config = {
     },
     // Specific important classes
     'gradient-text',
-    'gradient-text-2', 
+    'gradient-text-2',
     'gradient-text-3',
     'bg-gradient-to-br',
     'bg-gradient-to-r',
@@ -51,27 +51,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Dark mode (default)
-        background: '#0f172a',
-        surface: '#1e293b',
-        primary: '#38bdf8', // Sky-400
-        secondary: '#6366f1', // Indigo-500
-        highlight: '#7c3aed', // Violet-600
-        'text-primary': '#f8fafc',
-        'text-secondary': '#cbd5e1',
-        'text-muted': '#64748b',
-        border: '#475569',
+        // Dark mode (black and white)
+        background: '#000000',
+        surface: '#0a0a0a',
+        primary: '#ffffff',
+        secondary: '#e5e5e5',
+        highlight: '#cccccc',
+        'text-primary': '#ffffff',
+        'text-secondary': '#a3a3a3',
+        'text-muted': '#737373',
+        border: '#262626',
 
-        // Light mode
+        // Light mode (white and black)
         'light-background': '#ffffff',
-        'light-surface': '#f8fafc', // Slate-50
-        'light-primary': '#0ea5e9', // Sky-500
-        'light-secondary': '#4f46e5', // Indigo-600
-        'light-highlight': '#8b5cf6', // Violet-500
-        'light-text-primary': '#0f172a',
-        'light-text-secondary': '#475569',
-        'light-text-muted': '#94a3b8',
-        'light-border': '#e2e8f0', // Slate-200
+        'light-surface': '#fafafa',
+        'light-primary': '#000000',
+        'light-secondary': '#1a1a1a',
+        'light-highlight': '#333333',
+        'light-text-primary': '#000000',
+        'light-text-secondary': '#525252',
+        'light-text-muted': '#737373',
+        'light-border': '#e5e5e5',
       },
       fontFamily: {
         heading: ['Times New Roman', 'serif'],
@@ -92,20 +92,20 @@ const config: Config = {
           '50%': { transform: 'translateY(-20px)' },
         },
         'glow': {
-          '0%': { boxShadow: '0 0 20px rgba(56, 189, 248, 0.5)' },
-          '100%': { boxShadow: '0 0 30px rgba(56, 189, 248, 0.8)' },
+          '0%': { boxShadow: '0 0 20px rgba(255, 255, 255, 0.3)' },
+          '100%': { boxShadow: '0 0 30px rgba(255, 255, 255, 0.5)' },
         },
       },
       backgroundImage: {
-        // Gradients for dark mode
-        'gradient-primary': 'linear-gradient(135deg, #38bdf8 0%, #6366f1 100%)',
-        'gradient-secondary': 'linear-gradient(135deg, #6366f1 0%, #7c3aed 100%)',
-        'gradient-highlight': 'linear-gradient(135deg, #7c3aed 0%, #0ea5e9 100%)',
-        
-        // Gradients for light mode
-        'gradient-light-primary': 'linear-gradient(135deg, #0ea5e9 0%, #4f46e5 100%)',
-        'gradient-light-secondary': 'linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%)',
-        'gradient-light-highlight': 'linear-gradient(135deg, #8b5cf6 0%, #0891b2 100%)',
+        // Gradients for dark mode (grayscale)
+        'gradient-primary': 'linear-gradient(135deg, #ffffff 0%, #e5e5e5 100%)',
+        'gradient-secondary': 'linear-gradient(135deg, #e5e5e5 0%, #cccccc 100%)',
+        'gradient-highlight': 'linear-gradient(135deg, #cccccc 0%, #b3b3b3 100%)',
+
+        // Gradients for light mode (grayscale)
+        'gradient-light-primary': 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)',
+        'gradient-light-secondary': 'linear-gradient(135deg, #1a1a1a 0%, #333333 100%)',
+        'gradient-light-highlight': 'linear-gradient(135deg, #333333 0%, #4d4d4d 100%)',
       },
     },
   },

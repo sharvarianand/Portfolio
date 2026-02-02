@@ -3,34 +3,39 @@ import React from 'react';
 import { education } from '../data/education';
 import { motion } from 'framer-motion';
 import { AcademicCapIcon, BriefcaseIcon } from '@heroicons/react/24/solid';
+import { GlowingEffect } from './ui/glowing-effect';
+import { ContainerScroll } from './ui/container-scroll-animation';
 
 const EducationSection = () => {
   return (
-    <section id="education" className="py-24">
-      <div className="max-w-6xl mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="font-heading text-4xl md:text-5xl gradient-text mb-16 text-center font-bold"
-        >
-          Education & Activities
-        </motion.h2>
-        <div className="relative">
+    <section id="education">
+      <ContainerScroll
+        titleComponent={
+          <div className="flex flex-col gap-2 mb-10">
+            <h2 className="text-4xl md:text-6xl font-heading font-bold gradient-text">
+              Education & Activities
+            </h2>
+            <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">
+              My academic journey and professional experiences.
+            </p>
+          </div>
+        }
+      >
+        <div className="p-4 md:p-8 relative">
           {/* Timeline Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 -translate-x-1/2 h-full w-0.5 bg-light-border dark:bg-border" />
-          
+          <div className="absolute left-4 md:left-1/2 top-4 -translate-x-1/2 h-[calc(100%-2rem)] w-0.5 bg-border" />
+
           {education.map((item, index) => (
-            <div key={index} className="relative mb-12">
+            <div key={index} className="relative mb-12 last:mb-0">
               {/* Icon */}
-              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-light-surface dark:bg-surface border-4 border-light-background dark:border-background flex items-center justify-center">
+              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-surface border-4 border-background flex items-center justify-center z-10">
                 {item.type === 'degree' ? (
-                  <AcademicCapIcon className="h-4 w-4 text-light-primary dark:text-primary" />
+                  <AcademicCapIcon className="h-4 w-4 text-text-primary" />
                 ) : (
-                  <BriefcaseIcon className="h-4 w-4 text-light-primary dark:text-primary" />
+                  <BriefcaseIcon className="h-4 w-4 text-text-primary" />
                 )}
               </div>
-              
+
               {/* Content */}
               <div className={`w-full flex ${index % 2 !== 0 ? 'md:justify-end' : 'md:justify-start'}`}>
                 <div className="w-full md:w-5/12 pl-12 md:pl-0">
@@ -39,16 +44,17 @@ const EducationSection = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2, duration: 0.5 }}
-                    className="bg-light-surface dark:bg-surface p-6 rounded-2xl border border-light-border dark:border-border shadow-lg"
+                    className="relative bg-black/40 backdrop-blur-xl p-6 rounded-2xl border border-white/5 shadow-lg"
                   >
-                    <p className="text-sm font-semibold text-light-primary dark:text-primary mb-1">{item.date}</p>
-                    <h3 className="font-heading text-xl font-bold text-light-text-primary dark:text-text-primary mb-2">{item.title}</h3>
-                    <p className="text-sm text-light-text-secondary dark:text-text-secondary font-semibold">{item.institution}</p>
-                    {item.gpa && item.gpa !== 'N/A' && (
-                      <p className="text-sm text-light-text-secondary dark:text-text-secondary mt-2">Grade: {item.gpa}</p>
+                    <GlowingEffect spread={35} glow={true} disabled={false} proximity={56} inactiveZone={0.01} borderWidth={1.5} />
+                    <p className="text-sm font-semibold text-text-secondary mb-1">{item.date}</p>
+                    <h3 className="font-heading text-xl font-bold text-text-primary mb-2">{item.title}</h3>
+                    <p className="text-sm text-text-secondary font-semibold">{item.institution}</p>
+                    {(item.gpa && item.gpa !== 'N/A') && (
+                      <p className="text-sm text-text-secondary mt-2">Grade: {item.gpa}</p>
                     )}
-                     {item.description && (
-                      <p className="text-sm text-light-text-secondary dark:text-text-secondary mt-2">{item.description}</p>
+                    {item.description && (
+                      <p className="text-sm text-text-secondary mt-2 leading-relaxed">{item.description}</p>
                     )}
                   </motion.div>
                 </div>
@@ -56,7 +62,7 @@ const EducationSection = () => {
             </div>
           ))}
         </div>
-      </div>
+      </ContainerScroll>
     </section>
   );
 };

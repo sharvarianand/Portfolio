@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { GlowingEffect } from './ui/glowing-effect';
 
 const ContactSection = () => {
   const [result, setResult] = useState<string | null>(null);
@@ -43,8 +44,8 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-24 flex flex-col items-center text-center gap-8 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-light-primary/5 to-transparent dark:via-primary/5" />
-      
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-100/5 to-transparent dark:via-white/5" />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -64,34 +65,42 @@ const ContactSection = () => {
             <h3 className="font-heading text-2xl text-light-text-primary dark:text-text-primary mb-6">Contact Information</h3>
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-light-primary/10 dark:bg-primary/10 flex items-center justify-center">
-                  <FaEnvelope className="h-5 w-5 text-light-primary dark:text-primary" />
+                <div className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center border border-white/10">
+                  <FaEnvelope className="h-5 w-5 text-light-text-primary dark:text-text-primary" />
                 </div>
                 <div>
                   <p className="text-light-text-primary dark:text-text-primary font-medium">Email</p>
-                  <a href="mailto:sharvaribhondekar23@gmail.com" className="text-light-text-secondary dark:text-text-secondary hover:text-light-primary dark:hover:text-primary transition-colors">sharvaribhondekar23@gmail.com</a>
+                  <a href="mailto:sharvaribhondekar23@gmail.com" className="text-light-text-secondary dark:text-text-secondary hover:text-light-text-primary dark:hover:text-text-primary transition-colors">sharvaribhondekar23@gmail.com</a>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-light-secondary/10 dark:bg-secondary/10 flex items-center justify-center">
-                  <FaLinkedin className="h-5 w-5 text-light-primary dark:text-primary" />
+                <div className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center border border-white/10">
+                  <FaLinkedin className="h-5 w-5 text-light-text-primary dark:text-text-primary" />
                 </div>
                 <div>
                   <p className="text-light-text-primary dark:text-text-primary font-medium">LinkedIn</p>
-                  <a href="https://linkedin.com/in/sharvari-bhondekar-872a7a282" target="_blank" rel="noopener noreferrer" className="text-light-text-secondary dark:text-text-secondary hover:text-light-primary dark:hover:text-primary transition-colors">linkedin.com/in/sharvari-bhondekar</a>
+                  <a href="https://linkedin.com/in/sharvari-bhondekar-872a7a282" target="_blank" rel="noopener noreferrer" className="text-light-text-secondary dark:text-text-secondary hover:text-light-text-primary dark:hover:text-text-primary transition-colors">linkedin.com/in/sharvari-bhondekar</a>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-light-highlight/10 dark:bg-highlight/10 flex items-center justify-center">
-                  <FaGithub className="h-5 w-5 text-light-primary dark:text-primary" />
+                <div className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center border border-white/10">
+                  <FaGithub className="h-5 w-5 text-light-text-primary dark:text-text-primary" />
                 </div>
                 <div>
                   <p className="text-light-text-primary dark:text-text-primary font-medium">GitHub</p>
-                  <a href="https://github.com/sharvarianand" target="_blank" rel="noopener noreferrer" className="text-light-text-secondary dark:text-text-secondary hover:text-light-primary dark:hover:text-primary transition-colors">github.com/sharvarianand</a>
+                  <a href="https://github.com/sharvarianand" target="_blank" rel="noopener noreferrer" className="text-light-text-secondary dark:text-text-secondary hover:text-light-text-primary dark:hover:text-text-primary transition-colors">github.com/sharvarianand</a>
                 </div>
               </div>
             </div>
-            <div className="bg-light-surface dark:bg-surface rounded-xl p-6 border border-light-border dark:border-border">
+            <div className="relative bg-black/40 dark:bg-black/60 backdrop-blur-xl rounded-xl p-6 border border-white/5 dark:border-white/10 shadow-lg">
+              <GlowingEffect
+                spread={35}
+                glow={true}
+                disabled={false}
+                proximity={56}
+                inactiveZone={0.01}
+                borderWidth={1.5}
+              />
               <h4 className="font-heading text-lg text-light-text-primary dark:text-text-primary mb-4">Current Status</h4>
               <ul className="space-y-2 text-light-text-secondary dark:text-text-secondary">
                 <li>✅ Available for freelance work and full-time opportunities</li>
@@ -102,23 +111,31 @@ const ContactSection = () => {
             </div>
           </motion.div>
 
-          <motion.form initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }} onSubmit={handleSubmit} className="bg-light-surface dark:bg-surface backdrop-blur-lg rounded-2xl sm:p-8 p-4 shadow-lg flex flex-col gap-8 border border-light-border dark:border-border w-full max-w-md mx-auto">
+          <motion.form initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }} onSubmit={handleSubmit} className="relative bg-black/40 dark:bg-black/60 backdrop-blur-xl rounded-2xl sm:p-8 p-4 shadow-lg flex flex-col gap-8 border border-white/5 dark:border-white/10 w-full max-w-md mx-auto">
+            <GlowingEffect
+              spread={40}
+              glow={true}
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+              borderWidth={2}
+            />
             <h3 className="font-heading text-2xl text-light-text-primary dark:text-text-primary mb-4">Send Me a Message</h3>
             <input type="hidden" name="subject" value="New Message from Portfolio" />
-            
+
             <div className="relative group mb-2">
-              <input type="text" id="name" name="name" required className="peer w-full bg-transparent border-b-2 border-light-primary/30 dark:border-primary/30 focus:border-light-primary dark:focus:border-primary outline-none py-3 px-2 text-base text-light-text-primary dark:text-text-primary placeholder-transparent transition-all" placeholder="Name" />
-              <label htmlFor="name" className="absolute left-2 -top-2 text-xs text-light-primary dark:text-primary transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-light-text-muted dark:peer-placeholder-shown:text-text-muted peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-light-primary dark:peer-focus:text-primary">Name</label>
+              <input type="text" id="name" name="name" required className="peer w-full bg-transparent border-b-2 border-gray-300 dark:border-gray-700 focus:border-light-text-primary dark:focus:border-text-primary outline-none py-3 px-2 text-base text-light-text-primary dark:text-text-primary placeholder-transparent transition-all" placeholder="Name" />
+              <label htmlFor="name" className="absolute left-2 -top-2 text-xs text-light-text-primary dark:text-text-primary transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-light-text-muted dark:peer-placeholder-shown:text-text-muted peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-light-text-primary dark:peer-focus:text-text-primary">Name</label>
             </div>
             <div className="relative group mb-2">
-              <input type="email" id="email" name="email" required className="peer w-full bg-transparent border-b-2 border-light-primary/30 dark:border-primary/30 focus:border-light-primary dark:focus:border-primary outline-none py-3 px-2 text-base text-light-text-primary dark:text-text-primary placeholder-transparent transition-all" placeholder="Email" />
-              <label htmlFor="email" className="absolute left-2 -top-2 text-xs text-light-primary dark:text-primary transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-light-text-muted dark:peer-placeholder-shown:text-text-muted peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-light-primary dark:peer-focus:text-primary">Email</label>
+              <input type="email" id="email" name="email" required className="peer w-full bg-transparent border-b-2 border-gray-300 dark:border-gray-700 focus:border-light-text-primary dark:focus:border-text-primary outline-none py-3 px-2 text-base text-light-text-primary dark:text-text-primary placeholder-transparent transition-all" placeholder="Email" />
+              <label htmlFor="email" className="absolute left-2 -top-2 text-xs text-light-text-primary dark:text-text-primary transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-light-text-muted dark:peer-placeholder-shown:text-text-muted peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-light-text-primary dark:peer-focus:text-text-primary">Email</label>
             </div>
             <div className="relative group mb-2">
-              <textarea id="message" name="message" required rows={4} className="peer w-full bg-transparent border-b-2 border-light-primary/30 dark:border-primary/30 focus:border-light-primary dark:focus:border-primary outline-none py-3 px-2 text-base text-light-text-primary dark:text-text-primary placeholder-transparent transition-all resize-none" placeholder="Message" />
-              <label htmlFor="message" className="absolute left-2 -top-2 text-xs text-light-primary dark:text-primary transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-light-text-muted dark:peer-placeholder-shown:text-text-muted peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-light-primary dark:peer-focus:text-primary">Message</label>
+              <textarea id="message" name="message" required rows={4} className="peer w-full bg-transparent border-b-2 border-gray-300 dark:border-gray-700 focus:border-light-text-primary dark:focus:border-text-primary outline-none py-3 px-2 text-base text-light-text-primary dark:text-text-primary placeholder-transparent transition-all resize-none" placeholder="Message" />
+              <label htmlFor="message" className="absolute left-2 -top-2 text-xs text-light-text-primary dark:text-text-primary transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-light-text-muted dark:peer-placeholder-shown:text-text-muted peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-light-text-primary dark:peer-focus:text-text-primary">Message</label>
             </div>
-            <motion.button type="submit" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full py-4 rounded-xl font-heading bg-gradient-light-primary dark:bg-gradient-primary text-white shadow-lg hover:shadow-primary/25 transition-shadow font-semibold text-base sm:text-lg" disabled={submitting}>
+            <motion.button type="submit" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full py-4 rounded-xl font-heading bg-gradient-to-r from-black via-gray-800 to-gray-900 dark:from-white dark:via-gray-200 dark:to-gray-100 text-white dark:text-black shadow-lg hover:shadow-primary/25 transition-shadow font-semibold text-base sm:text-lg" disabled={submitting}>
               {submitting ? 'Sending...' : 'Send Message'}
             </motion.button>
             {result && <p className={`mt-4 text-sm ${result.includes('success') ? 'text-green-500' : 'text-red-500'}`}>{result}</p>}

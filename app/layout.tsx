@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ThemeProvider } from "./ThemeProvider";
-import BackgroundCircles from "../components/BackgroundCircles";
+import GlobalBackground from "../components/GlobalBackground";
 import SocialsFloat from '../components/SocialsFloat';
 
 export const metadata: Metadata = {
@@ -31,11 +31,12 @@ export default function RootLayout({
       <body className="antialiased bg-light-background dark:bg-background text-light-text-primary dark:text-text-primary" style={{ fontFamily: "'Times New Roman', serif" }}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          forcedTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
-          <BackgroundCircles />
+          <GlobalBackground />
           <Navbar />
           <main className="relative z-10">{children}</main>
           <SocialsFloat />

@@ -19,7 +19,7 @@ const FloatingCode = () => {
         <motion.div
           key={index}
           initial={{ opacity: 0, y: 20 }}
-          animate={{ 
+          animate={{
             opacity: [0, 0.6, 0],
             y: [20, -10, -30],
           }}

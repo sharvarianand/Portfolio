@@ -1,26 +1,26 @@
 export const achievements = [
   {
-    title: '1st Prize at VNPS',
-    description: 'Winner of the National Product Showcase Competition for the project SynthIDEAL, an innovative solution for securing AI-generated media using invisible watermarking.',
-    year: '2025',
+    title: '1st Place (Individual) - Build with AI Hackathon',
+    description: 'Winner of the Edquest Build with AI Hackathon for InterVueX, an AI interview engine with adaptive evaluation and feedback.',
+    year: '2026',
     icon: '🏆',
   },
   {
-    title: '1st Prize at Oscillation',
-    description: 'Secured first place in the National Research Paper Presentation competition for our paper on pioneering new methods for securing AI-generated content.',
-    year: '2025',
-    icon: '📄',
+    title: '3rd Place - TechXpression X CSI Hackathon',
+    description: 'Developed Sentira, a sentiment and bias analysis platform using NLP, at B.K. Birla College.',
+    year: '2026',
+    icon: '🥉',
   },
   {
-    title: 'IIT Bombay IKS Conference',
-    description: 'Presented a poster on Health Management at the Indian Knowledge Systems (IKS) Conference in Management at IIT Bombay, exploring holistic approaches embedded in Indian Knowledge Systems.',
-    year: '2024',
-    icon: '🎓',
+    title: 'Top 5 Finalist - Codeverse 3.0 Hackathon',
+    description: 'Built CrowdKavach, an AI-based crowd safety and risk detection system, competing among top innovative projects.',
+    year: '2026',
+    icon: '⭐',
   },
   {
-    title: "AFE Bootcamp",
-    description: 'Advanced to Phase 2 of the Amazon Future Engineer (AFE) Bootcamp, selected among the top 513 candidates in India. Phase 1 focused on Python, with Phase 2 covering Java and DSA.',
+    title: 'Winner - VNPS 2025 & Oscillation 2025',
+    description: 'Presented SynthIDEAL Pro, a multimodal invisible watermarking system for text, image, and audio content.',
     year: '2025',
-    icon: '🚀',
+    icon: '🥇',
   },
-]; 
+];
