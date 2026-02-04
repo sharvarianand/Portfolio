@@ -41,7 +41,7 @@
 
 /* Gradient text needs to be defined for light/dark modes */
 .gradient-text {
-  @apply bg-gradient-to-r from-black via-gray-700 to-gray-900 dark:from-white dark:via-gray-300 dark:to-gray-100 text-transparent bg-clip-text;
+  @apply bg-gradient-to-r from-black via-gray-700 to-gray-900 dark:from-white dark:via-white dark:to-white text-transparent bg-clip-text;
 }
 
 .font-heading {
@@ -271,7 +271,7 @@
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #000000 0%, #4d4d4d 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #e5e5e5 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
