@@ -51,19 +51,15 @@ const SkillCard = ({ skill, index }: { skill: typeof skills[0]; index: number })
     return (
         <motion.div
             ref={cardRef}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-                delay: index * 0.03,
-                duration: 0.4,
-                ease: "easeOut"
-            }}
-            viewport={{ once: true, margin: "-50px" }}
+            transition={{ delay: index * 0.05, duration: 0.5 }}
+            viewport={{ once: true }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{
-                rotateX: isMobile ? 0 : rotateX,
-                rotateY: isMobile ? 0 : rotateY,
+                rotateX,
+                rotateY,
                 transformStyle: 'preserve-3d',
                 willChange: "transform, opacity"
             }}
