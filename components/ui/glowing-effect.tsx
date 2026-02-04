@@ -100,7 +100,11 @@ const GlowingEffect = memo(
         useEffect(() => {
             if (disabled) return;
 
-            const handleScroll = () => handleMove();
+            const isMobile = window.innerWidth <= 768;
+            const handleScroll = () => {
+                if (isMobile) return;
+                handleMove();
+            };
             const handlePointerMove = (e: PointerEvent) => handleMove(e);
 
             window.addEventListener("scroll", handleScroll, { passive: true });
@@ -172,7 +176,7 @@ const GlowingEffect = memo(
                             "rounded-[inherit]",
                             'after:content-[""] after:rounded-[inherit] after:absolute after:inset-[calc(-1*var(--glowingeffect-border-width))]',
                             "after:[border:var(--glowingeffect-border-width)_solid_transparent]",
-                            "after:[background:var(--gradient)] after:[background-attachment:fixed]",
+                            "after:[background:var(--gradient)]",
                             "after:opacity-[var(--active)] after:transition-opacity after:duration-300",
                             "after:[mask-clip:padding-box,border-box]",
                             "after:[mask-composite:intersect]",

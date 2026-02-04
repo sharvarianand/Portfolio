@@ -7,6 +7,11 @@ import { GlowingEffect } from './ui/glowing-effect';
 
 const SkillCard = ({ skill, index }: { skill: typeof skills[0]; index: number }) => {
     const cardRef = useRef<HTMLDivElement>(null);
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    React.useEffect(() => {
+        setIsMobile(window.innerWidth <= 768);
+    }, []);
 
     // Motion values for 3D tilt effect
     const x = useMotionValue(0);
@@ -21,7 +26,7 @@ const SkillCard = ({ skill, index }: { skill: typeof skills[0]; index: number })
     const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-12deg', '12deg']);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!cardRef.current) return;
+        if (!cardRef.current || isMobile) return;
 
         const rect = cardRef.current.getBoundingClientRect();
         const width = rect.width;
@@ -38,6 +43,7 @@ const SkillCard = ({ skill, index }: { skill: typeof skills[0]; index: number })
     };
 
     const handleMouseLeave = () => {
+        if (isMobile) return;
         x.set(0);
         y.set(0);
     };
@@ -45,16 +51,21 @@ const SkillCard = ({ skill, index }: { skill: typeof skills[0]; index: number })
     return (
         <motion.div
             ref={cardRef}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.05, duration: 0.5 }}
-            viewport={{ once: true }}
+            transition={{
+                delay: index * 0.03,
+                duration: 0.4,
+                ease: "easeOut"
+            }}
+            viewport={{ once: true, margin: "-50px" }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{
-                rotateX,
-                rotateY,
+                rotateX: isMobile ? 0 : rotateX,
+                rotateY: isMobile ? 0 : rotateY,
                 transformStyle: 'preserve-3d',
+                willChange: "transform, opacity"
             }}
             className="relative group cursor-pointer"
         >
