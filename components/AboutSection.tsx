@@ -1,7 +1,6 @@
 'use client';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { skills } from '../data/skills';
 import Image from 'next/image';
 import { FaMapMarkerAlt, FaEnvelope, FaFileAlt } from 'react-icons/fa';
 import ResumeModal from './ResumeModal';
@@ -88,39 +87,6 @@ const AboutSection = () => {
               >
                 <FaFileAlt /> View Resume
               </button>
-            </div>
-          </div>
-
-          {/* Tech Stack Section inside the Scroll card */}
-          <div id="skills" className="w-full mt-20">
-            <h3 className="text-2xl md:text-4xl font-heading font-extrabold mb-8 text-left">
-              <span className="block gradient-text drop-shadow-lg">Tech I Use</span>
-              <span className="block gradient-text drop-shadow-lg">to Build Scalable Solutions</span>
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-              {skills.map(({ name, icon: Icon }, index) => {
-                const brandColors: Record<string, string> = {
-                  HTML: '#E34F26', CSS: '#1572B6', JavaScript: '#F7DF1E', TypeScript: '#3178C6',
-                  React: '#61DAFB', 'Next.js': '#000000', 'Node.js': '#339933', 'Express.js': '#000000',
-                  Tailwind: '#06B6D4', MongoDB: '#47A248', MySQL: '#4479A1', Python: '#3776AB',
-                  Java: '#007396', Git: '#F05032',
-                };
-                const color = brandColors[name] || 'currentColor';
-                return (
-                  <motion.div
-                    key={name}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    viewport={{ once: true }}
-                    className="relative flex flex-col items-center justify-center bg-black/40 dark:bg-black/60 rounded-xl p-6 border border-white/5 dark:border-white/10 shadow-md hover:scale-105 transition-transform duration-300"
-                  >
-                    <GlowingEffect spread={30} glow={true} disabled={false} proximity={48} inactiveZone={0.01} borderWidth={1.5} />
-                    <Icon className="mb-3" size={48} color={color} />
-                    <span className="font-heading text-lg text-slate-800 dark:text-slate-100 mt-1">{name}</span>
-                  </motion.div>
-                );
-              })}
             </div>
           </div>
         </div>

@@ -1,7 +1,17 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Bars3Icon, XMarkIcon, DocumentTextIcon } from '@heroicons/react/24/outline';
+import {
+  Bars3Icon,
+  XMarkIcon,
+  DocumentTextIcon,
+  HomeIcon,
+  UserIcon,
+  CodeBracketIcon,
+  BriefcaseIcon,
+  TrophyIcon,
+  EnvelopeIcon
+} from '@heroicons/react/24/outline';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter, usePathname } from 'next/navigation';
 import ResumeModal from './ResumeModal';
@@ -16,22 +26,41 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'projects', 'achievements', 'contact'];
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + 200;
 
-      sections.forEach((section) => {
-        const element = document.getElementById(section);
+      // Check sections in order, including nested ones
+      const sections = [
+        { id: 'home', element: document.getElementById('home') },
+        { id: 'about', element: document.getElementById('about') },
+        { id: 'skills', element: document.getElementById('skills') },
+        { id: 'projects', element: document.getElementById('projects') },
+        { id: 'achievements', element: document.getElementById('achievements') },
+        { id: 'contact', element: document.getElementById('contact') },
+      ];
+
+      let currentSection = 'home';
+
+      // Check each section
+      for (const { id, element } of sections) {
         if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
+          const rect = element.getBoundingClientRect();
+          const elementTop = window.scrollY + rect.top;
+          const elementBottom = elementTop + rect.height;
+
+          // Check if scroll position is within this element
+          if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
+            currentSection = id;
+            // Don't break - let later sections override if they also match
+            // This handles nested sections properly
           }
         }
-      });
+      }
 
+      setActiveSection(currentSection);
       setIsScrolled(window.scrollY > 50);
     };
 
+    handleScroll(); // Run once on mount
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -49,17 +78,17 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { href: 'home', label: 'Home' },
-    { href: 'about', label: 'About' },
-    { href: 'skills', label: 'Skills' },
-    { href: 'projects', label: 'Projects' },
-    { href: 'achievements', label: 'Achievements' },
-    { href: 'contact', label: 'Contact' },
+    { href: 'home', label: 'Home', icon: HomeIcon },
+    { href: 'about', label: 'About', icon: UserIcon },
+    { href: 'skills', label: 'Skills', icon: CodeBracketIcon },
+    { href: 'projects', label: 'Projects', icon: BriefcaseIcon },
+    { href: 'achievements', label: 'Achievements', icon: TrophyIcon },
+    { href: 'contact', label: 'Contact', icon: EnvelopeIcon },
   ];
 
   return (
     <>
-      {/* Desktop Navbar - Shifted slightly right by using left-[55%] */}
+      {/* Desktop Navbar */}
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -137,15 +166,16 @@ const Navbar = () => {
               className="w-56 bg-surface/95 border border-border backdrop-blur-xl rounded-2xl shadow-lg"
             >
               <div className="p-2 space-y-1">
-                {navItems.map(({ href, label }) => (
+                {navItems.map(({ href, label, icon: Icon }) => (
                   <button
                     key={href}
                     onClick={() => handleNavigation(href)}
-                    className={`w-full text-left px-4 py-3 rounded-xl font-heading font-medium text-sm transition-all duration-300 ${activeSection === href
+                    className={`w-full text-left px-4 py-3 rounded-xl font-heading font-medium text-sm transition-all duration-300 flex items-center gap-3 ${activeSection === href
                       ? 'text-primary bg-primary/10'
                       : 'text-text-secondary hover:text-text-primary hover:bg-primary/5'
                       }`}
                   >
+                    <Icon className="w-5 h-5" />
                     {label}
                   </button>
                 ))}

@@ -43,7 +43,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 flex flex-col items-center text-center gap-8 relative">
+    <section id="contact" className="py-16 flex flex-col items-center text-center gap-8 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-100/5 to-transparent dark:via-white/5" />
 
       <motion.div
