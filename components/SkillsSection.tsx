@@ -59,7 +59,7 @@ const SkillCard = ({ skill, index }: { skill: typeof skills[0]; index: number })
             className="relative group cursor-pointer"
         >
             {/* Main Card */}
-            <div className="relative bg-black/40 backdrop-blur-xl p-6 rounded-2xl border border-white/5 shadow-lg h-full flex flex-col">
+            <div className="relative bg-black/80 backdrop-blur-xl p-6 rounded-2xl border-2 border-white/20 shadow-lg h-full flex flex-col">
                 {/* GlowingEffect - same as education cards */}
                 <GlowingEffect
                     spread={35}
@@ -74,13 +74,13 @@ const SkillCard = ({ skill, index }: { skill: typeof skills[0]; index: number })
                 <div className="relative z-10 mb-4 flex justify-center" style={{ transform: 'translateZ(50px)' }}>
                     <skill.icon
                         size={56}
-                        className="text-gray-800 dark:text-gray-200 drop-shadow-lg transition-colors duration-300"
+                        className="text-white drop-shadow-lg transition-colors duration-300"
                     />
                 </div>
 
                 {/* Skill Name */}
                 <h3
-                    className="relative z-10 text-xl font-heading font-bold text-black dark:text-white text-center mb-2"
+                    className="relative z-10 text-xl font-heading font-bold text-white text-center mb-2"
                     style={{ transform: 'translateZ(50px)' }}
                 >
                     {skill.name}
@@ -88,7 +88,7 @@ const SkillCard = ({ skill, index }: { skill: typeof skills[0]; index: number })
 
                 {/* Category Badge */}
                 <div className="relative z-10 flex justify-center mb-3" style={{ transform: 'translateZ(50px)' }}>
-                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700">
+                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-white border border-white/30">
                         {skill.category}
                     </span>
                 </div>
@@ -110,16 +110,16 @@ const SkillsSection = () => {
                             viewport={{ once: true }}
                             className="text-4xl md:text-6xl font-heading font-bold gradient-text"
                         >
-                            Technical Arsenal
+                            Technical Skills
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}
                             viewport={{ once: true }}
-                            className="text-lg md:text-xl text-gray-600 dark:text-gray-400 font-medium max-w-2xl mx-auto"
+                            className="text-lg md:text-xl text-gray-300 font-medium max-w-2xl mx-auto"
                         >
-                            My expertise and experience with cutting-edge technologies
+                            The tools and technologies I use to bring digital ideas to life.
                         </motion.p>
                     </div>
                 }
