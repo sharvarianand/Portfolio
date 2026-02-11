@@ -15,6 +15,8 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter, usePathname } from 'next/navigation';
 import ResumeModal from './ResumeModal';
+import { GlowingEffect } from './ui/glowing-effect';
+
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -88,44 +90,86 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Desktop Navbar */}
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-        className={`fixed top-4 left-[55%] z-50 -translate-x-1/2 rounded-2xl px-1 py-1 items-center gap-1 backdrop-blur-md border transition-all duration-300 hidden lg:flex ${isScrolled
-          ? 'bg-surface/80 border-border shadow-lg'
-          : 'bg-transparent border-transparent'
-          }`}
-      >
-        {navItems.map(({ href, label }) => (
-          <button
+      {/* Desktop Navbar - Separate Floating Icons Top Right */}
+      <div className="fixed top-6 right-10 z-50 hidden lg:flex items-center gap-3">
+        {navItems.map(({ href, label, icon: Icon }, index) => (
+          <motion.button
             key={href}
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.1,
+              type: 'spring',
+              stiffness: 120
+            }}
             onClick={() => handleNavigation(href)}
-            className={`relative px-4 py-2 rounded-xl font-heading text-sm transition-all duration-300 ${activeSection === href
-              ? 'text-primary'
-              : 'text-text-secondary hover:text-text-primary'
+            className={`group relative flex items-center justify-center w-14 h-14 rounded-full transition-all duration-500 bg-surface/60 backdrop-blur-xl border border-border/50 shadow-xl hover:shadow-primary/10 ${activeSection === href
+              ? 'text-primary border-primary/50'
+              : 'text-text-secondary hover:text-text-primary hover:border-primary/30'
               }`}
           >
             {activeSection === href && (
-              <motion.span
-                layoutId="activeSection"
-                className="absolute inset-0 rounded-xl bg-primary/10"
-                transition={{ type: 'spring', duration: 0.5 }}
+              <motion.div
+                layoutId="activeGlow"
+                className="absolute inset-0 rounded-full bg-primary/10 border border-primary/20"
+                transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
               />
             )}
-            <span className="relative z-10">{label}</span>
-          </button>
+
+            <div className="relative z-10 transition-transform duration-300 group-hover:scale-110">
+              <Icon className="w-6 h-6" />
+            </div>
+
+            <GlowingEffect
+              spread={40}
+              glow={true}
+              disabled={false}
+              proximity={40}
+              inactiveZone={0.01}
+              borderWidth={1.5}
+              variant={activeSection === href ? "default" : "white"}
+              className="rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            />
+
+            {/* Tooltip Below */}
+            <div className="absolute top-[120%] left-1/2 -translate-x-1/2 px-3 py-1.5 bg-surface/90 backdrop-blur-md border border-border text-text-primary text-[10px] font-medium rounded-xl opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none shadow-2xl whitespace-nowrap">
+              {label}
+              <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-surface border-l border-t border-border rotate-45" />
+            </div>
+          </motion.button>
         ))}
 
-        <button
+        <div className="w-px h-6 bg-border/30 mx-1" />
+
+        <motion.button
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
           onClick={() => setIsResumeModalOpen(true)}
-          className="relative px-4 py-2 rounded-xl font-heading text-sm transition-all duration-300 text-text-secondary hover:text-text-primary hover:bg-primary/10 flex items-center gap-1"
+          className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-primary/5 hover:bg-primary/10 text-text-secondary hover:text-text-primary border border-border/50 hover:border-primary/30 transition-all duration-300 shadow-xl"
         >
-          <DocumentTextIcon className="w-4 h-4" />
-          <span>Resume</span>
-        </button>
-      </motion.nav>
+          <DocumentTextIcon className="w-6 h-6 transition-transform duration-300 group-hover:scale-110" />
+
+          <GlowingEffect
+            spread={40}
+            glow={true}
+            disabled={true}
+            proximity={40}
+            inactiveZone={0.01}
+            borderWidth={1.5}
+            variant="white"
+            className="rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          />
+
+          <div className="absolute top-[120%] left-1/2 -translate-x-1/2 px-3 py-1.5 bg-surface/90 backdrop-blur-md border border-border text-text-primary text-[10px] font-medium rounded-xl opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none shadow-2xl whitespace-nowrap">
+            Resume
+            <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-surface border-l border-t border-border rotate-45" />
+          </div>
+        </motion.button>
+      </div>
+
+
 
       {/* Mobile Navbar */}
       <div className="fixed top-4 right-4 z-50 lg:hidden flex flex-col items-end gap-2">
