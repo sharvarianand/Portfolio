@@ -19,6 +19,14 @@ const AchievementsSection = () => {
             <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">
               Milestones that define my professional and academic growth.
             </p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 1 }}
+              className="text-sm text-primary/60 font-medium animate-pulse mt-2"
+            >
+              ( Hover over cards to reveal details )
+            </motion.p>
           </div>
         }
       >
@@ -38,10 +46,16 @@ const AchievementsSection = () => {
                 <GlowingEffect spread={50} glow={true} disabled={false} proximity={80} inactiveZone={0.01} borderWidth={3} />
                 <div className="absolute inset-2 rounded-full bg-gradient-to-br from-white/10 to-transparent dark:from-slate-800/20 dark:to-transparent" />
                 <div className="absolute -inset-2 rounded-full bg-white/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10 flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0">
+                <div className="relative z-10 flex flex-col items-center justify-center transition-all duration-300 group-hover:opacity-0 group-hover:scale-95">
                   <div className="text-6xl mb-4">{item.icon}</div>
                   <h3 className="font-heading text-xl font-bold text-white">{item.title}</h3>
                   <span className="text-sm font-bold text-gray-400 mt-2">{item.year}</span>
+
+                  {/* Visual Cue */}
+                  <div className="mt-4 flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] text-gray-400 font-medium group-hover:hidden">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                    Details
+                  </div>
                 </div>
                 <div className="absolute inset-0 z-20 flex items-center justify-center p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <p className="text-slate-200 text-sm">{item.description}</p>
