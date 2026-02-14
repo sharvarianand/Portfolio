@@ -18,7 +18,7 @@ export const certificates = [
   {
     title: 'Build and Grow AI Hackathon 2.0',
     description: 'Successfully participated in the Build and Grow AI Hackathon 2.0 organized by GDG Cloud Mumbai and GDG Cloud Pune.',
-    year: '2025',
+    year: '2026',
     category: 'Hackathon',
     link: 'https://drive.google.com/file/d/196SYQQAoeOPcdf6z-dmDPimySz1bq7T_/view?usp=sharing',
     icon: '💻',
@@ -26,7 +26,7 @@ export const certificates = [
   {
     title: 'CodeVerse 3.0',
     description: "Participated in CodeVerse 3.0, a competitive coding event organized by Vidyavardhini's Bhausaheb Vartak Polytechnic.",
-    year: '2025',
+    year: '2026',
     category: 'Competition',
     link: 'https://drive.google.com/file/d/1DM8Yt-YF5O1yBFKMM-YqNV8WKGciLvSV/view?usp=sharing',
     icon: '👨‍💻',
