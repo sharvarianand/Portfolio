@@ -13,7 +13,7 @@ export const projects = [
     tags: ['AI', 'Computer Vision', 'Real-time', 'Python', 'Crowd Safety'],
     github: 'https://github.com/sharvarianand/CrowdKavach.git',
     demo: 'https://crowd-kavach.vercel.app/',
-    image: '/globe.svg',
+    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80',
   },
   {
     name: 'Sentira',
@@ -21,7 +21,7 @@ export const projects = [
     tags: ['NLP', 'Sentiment Analysis', 'Contextual Bias', 'Python', 'Data Science'],
     github: 'https://github.com/sharvarianand',
     demo: '#',
-    image: '/synthideal.svg',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
   },
   {
     name: 'SynthIDEAL Pro',
@@ -29,7 +29,7 @@ export const projects = [
     tags: ['Machine Learning', 'Watermarking', 'Security', 'Multimodal', 'AI'],
     github: 'https://github.com/sharvarianand/SynthIDEAL_Pro',
     demo: '#',
-    image: '/stratofi.svg',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
   },
   {
     name: 'Portfolio',

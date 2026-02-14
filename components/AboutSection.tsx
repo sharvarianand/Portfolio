@@ -25,6 +25,14 @@ const AboutSection = () => {
       >
         <div className="p-4 md:p-8">
           <div className="relative bg-black/40 dark:bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg p-8 flex flex-col md:flex-row items-center md:items-start gap-10 border border-white/10 dark:border-white/10">
+            <GlowingEffect
+              spread={50}
+              glow={true}
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+              borderWidth={2}
+            />
             {/* Left: Photo + badge/quote */}
             <div className="flex flex-col items-center text-center gap-4 flex-shrink-0">
               <div className="relative w-36 h-36 md:w-48 md:h-48">

@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   // Optimize for Vercel deployment
   images: {
     unoptimized: true, // Set to false to use Vercel's image optimization
-    domains: [], // Add any external image domains here
+    domains: ["images.unsplash.com"], // External hosts used by project card images
   },
   
   // Keep experimental features minimal for stability
