@@ -43,7 +43,7 @@ const AchievementsSection = () => {
                 transition={{ delay: index * 0.2, duration: 0.4 }}
                 className="group relative w-64 h-64 rounded-full flex flex-col items-center justify-center p-6 text-center shadow-2xl transition-all duration-300 cursor-pointer border-4 border-white/10 dark:border-white/10 bg-black/40 dark:bg-black/60 backdrop-blur-md hover:border-white/50"
               >
-                <GlowingEffect spread={50} glow={true} disabled={false} proximity={80} inactiveZone={0.01} borderWidth={3} />
+                <GlowingEffect spread={40} glow={true} disabled={false} proximity={80} inactiveZone={0.01} borderWidth={1.5} />
                 <div className="absolute inset-2 rounded-full bg-gradient-to-br from-white/10 to-transparent dark:from-slate-800/20 dark:to-transparent" />
                 <div className="absolute -inset-2 rounded-full bg-white/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10 flex flex-col items-center justify-center transition-all duration-300 group-hover:opacity-0 group-hover:scale-95">
@@ -72,7 +72,7 @@ const AchievementsSection = () => {
             transition={{ duration: 0.7, delay: 0.4 }}
           >
             <div className="relative group p-8 rounded-2xl bg-black/40 dark:bg-black/60 backdrop-blur-xl border border-white/5 dark:border-white/10 overflow-hidden shadow-xl">
-              <GlowingEffect spread={45} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={2} />
+              <GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} borderWidth={1.2} />
               <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative flex flex-col md:flex-row items-center justify-between gap-8">
                 <div className="flex-shrink-0 text-white dark:text-gray-300">

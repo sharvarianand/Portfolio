@@ -44,12 +44,12 @@ const ProjectsSection = () => {
                 className="group relative rounded-3xl"
               >
                 <GlowingEffect
-                  spread={80}
+                  spread={40}
                   glow={true}
                   disabled={false}
                   proximity={64}
                   inactiveZone={0.01}
-                  borderWidth={3}
+                  borderWidth={1.5}
                 />
 
                 <div className="relative h-full w-full rounded-3xl overflow-hidden bg-neutral-900/50 backdrop-blur-xl border border-white/10 hover:border-white/30 transition-all duration-300">

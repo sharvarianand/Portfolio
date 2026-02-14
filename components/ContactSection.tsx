@@ -99,7 +99,7 @@ const ContactSection = () => {
                 disabled={false}
                 proximity={56}
                 inactiveZone={0.01}
-                borderWidth={1.5}
+                borderWidth={1}
               />
               <h4 className="font-heading text-lg text-light-text-primary dark:text-text-primary mb-4">Current Status</h4>
               <ul className="space-y-2 text-light-text-secondary dark:text-text-secondary">
@@ -118,7 +118,7 @@ const ContactSection = () => {
               disabled={false}
               proximity={64}
               inactiveZone={0.01}
-              borderWidth={2}
+              borderWidth={1.2}
             />
             <h3 className="font-heading text-2xl text-light-text-primary dark:text-text-primary mb-4">Send Me a Message</h3>
             <input type="hidden" name="subject" value="New Message from Portfolio" />
