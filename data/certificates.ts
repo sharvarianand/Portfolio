@@ -1,5 +1,37 @@
 export const certificates = [
   {
+    title: '3rd Position - TechXpression X CSI Hackathon',
+    description: 'Secured 3rd position in the TechXpression national-level hackathon organized by B. K. Birla College in collaboration with the Computer Society of India (CSI) with team "Neural Nexus".',
+    year: '2026',
+    category: 'Hackathon',
+    link: 'https://drive.google.com/file/d/1ag6yvtH7QNECYGdKa3cr9tz2X22YS1fS/view?usp=sharing',
+    icon: '🏆',
+  },
+  {
+    title: 'Winner - Build With AI Hackathon',
+    description: 'Recognized as the winner of the Build With AI Hackathon hosted by edQuest and Surfboard, focused on building innovative AI-driven solutions.',
+    year: '2026',
+    category: 'Hackathon',
+    link: 'https://drive.google.com/file/d/1d1xfJqmlCVaTfO949fUCpotQjry4Iqy8/view?usp=sharing',
+    icon: '🥇',
+  },
+  {
+    title: 'Build and Grow AI Hackathon 2.0',
+    description: 'Successfully participated in the Build and Grow AI Hackathon 2.0 organized by GDG Cloud Mumbai and GDG Cloud Pune.',
+    year: '2025',
+    category: 'Hackathon',
+    link: 'https://drive.google.com/file/d/196SYQQAoeOPcdf6z-dmDPimySz1bq7T_/view?usp=sharing',
+    icon: '💻',
+  },
+  {
+    title: 'CodeVerse 3.0',
+    description: "Participated in CodeVerse 3.0, a competitive coding event organized by Vidyavardhini's Bhausaheb Vartak Polytechnic.",
+    year: '2025',
+    category: 'Competition',
+    link: 'https://drive.google.com/file/d/1DM8Yt-YF5O1yBFKMM-YqNV8WKGciLvSV/view?usp=sharing',
+    icon: '👨‍💻',
+  },
+  {
     title: 'VNPS 25 Winner Certificate',
     description: 'Winner of the National Product Showcase Competition for SynthIDEAL project',
     year: '2025',

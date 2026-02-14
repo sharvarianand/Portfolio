@@ -71,7 +71,7 @@ const CertificatesPage = () => {
                 disabled={false}
                 proximity={64}
                 inactiveZone={0.01}
-                borderWidth={2}
+                borderWidth={1.2}
               />
               {/* Certificate Icon */}
               <div className="text-4xl mb-4 text-center">
