@@ -106,8 +106,9 @@ const SkillCard = ({ skill, index }: { skill: typeof skills[0]; index: number })
 
 const SkillsSection = () => {
     return (
-        <section id="skills" className="relative py-20">
+        <section id="skills" className="relative">
             <ContainerScroll
+                expandToFitContent
                 titleComponent={
                     <div className="flex flex-col gap-2 mb-10">
                         <motion.h2

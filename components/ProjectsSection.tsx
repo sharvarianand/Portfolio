@@ -21,6 +21,7 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="relative">
       <ContainerScroll
+        expandToFitContent
         titleComponent={
           <div className="flex flex-col gap-2 mb-10">
             <h2 className="text-4xl md:text-6xl font-heading font-bold gradient-text">

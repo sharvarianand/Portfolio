@@ -1,13 +1,16 @@
 "use client";
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export const ContainerScroll = ({
     titleComponent,
     children,
+    expandToFitContent = false,
 }: {
     titleComponent: string | React.ReactNode;
     children: React.ReactNode;
+    expandToFitContent?: boolean;
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
@@ -36,18 +39,32 @@ export const ContainerScroll = ({
 
     return (
         <div
-            className="h-[50rem] md:h-[65rem] flex items-center justify-center relative p-2 md:p-12"
+            className={cn(
+                "flex justify-center relative p-2 md:px-12",
+                expandToFitContent
+                    ? "h-auto items-start md:pt-6 md:pb-10"
+                    : "h-[50rem] md:h-[65rem] items-center md:py-12",
+            )}
             ref={containerRef}
             style={{ willChange: "transform" }}
         >
             <div
-                className="py-8 md:py-28 w-full relative"
+                className={cn(
+                    "w-full relative",
+                    expandToFitContent ? "py-4 md:py-10" : "py-8 md:py-28",
+                )}
                 style={{
                     perspective: "1000px",
                 }}
             >
                 <Header translate={translate} titleComponent={titleComponent} />
-                <Card rotate={rotate} translate={translate} scale={scale} isMobile={isMobile}>
+                <Card
+                    rotate={rotate}
+                    translate={translate}
+                    scale={scale}
+                    isMobile={isMobile}
+                    expandToFitContent={expandToFitContent}
+                >
                     {children}
                 </Card>
             </div>
@@ -73,12 +90,14 @@ export const Card = ({
     scale,
     children,
     isMobile,
+    expandToFitContent = false,
 }: {
     rotate: MotionValue<number>;
     scale: MotionValue<number>;
     translate: MotionValue<number>;
     children: React.ReactNode;
     isMobile: boolean;
+    expandToFitContent?: boolean;
 }) => {
     return (
         <motion.div
@@ -89,9 +108,17 @@ export const Card = ({
                     ? "0 10px 30px -10px rgba(0,0,0,0.5)"
                     : "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
             }}
-            className="max-w-5xl -mt-12 mx-auto h-[40rem] md:h-[50rem] w-full border-2 md:border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#111111] rounded-[30px] shadow-2xl overflow-hidden will-change-transform"
+            className={cn(
+                "max-w-5xl -mt-12 mx-auto w-full border-2 md:border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#111111] rounded-[30px] shadow-2xl overflow-hidden will-change-transform",
+                expandToFitContent ? "h-auto" : "h-[40rem] md:h-[50rem]",
+            )}
         >
-            <div className="h-full w-full overflow-y-auto rounded-2xl bg-black/50 dark:bg-zinc-900 md:rounded-2xl md:p-4 custom-scrollbar">
+            <div
+                className={cn(
+                    "w-full rounded-2xl bg-black/50 dark:bg-zinc-900 md:rounded-2xl md:p-4",
+                    expandToFitContent ? "h-auto" : "h-full overflow-y-auto custom-scrollbar",
+                )}
+            >
                 {children}
             </div>
         </motion.div>
