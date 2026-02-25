@@ -45,9 +45,10 @@ const AboutSection = () => {
                   <Image
                     src="/photo.jpg"
                     alt="Sharvari Bhondekar"
-                    width={400}
-                    height={400}
-                    className="object-cover w-full h-full"
+                    width={800}
+                    height={800}
+                    quality={100}
+                    className="object-cover w-full h-full scale-[1.15] object-top"
                     priority
                     loading="eager"
                   />
