@@ -31,12 +31,4 @@ export const projects = [
     demo: '#',
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
   },
-  {
-    name: 'Portfolio',
-    description: 'A premium, high-performance portfolio showcasing AI research and software engineering projects. Features cinematic dark mode, 3D interactive elements, and advanced Framer Motion animations.',
-    tags: ['Next.js', 'Framer Motion', 'Three.js', 'TypeScript', 'Tailwind CSS'],
-    github: 'https://github.com/sharvarianand/Portfolio.git',
-    demo: 'https://sharvaribhondekarportfolio.vercel.app/',
-    image: '/portfolio_hero.png',
-  },
 ];
