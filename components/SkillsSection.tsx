@@ -2,7 +2,6 @@
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { skills } from '../data/skills';
-import { ContainerScroll } from './ui/container-scroll-animation';
 import { GlowingEffect } from './ui/glowing-effect';
 
 const SkillCard = ({ skill, index }: { skill: typeof skills[0]; index: number }) => {
@@ -106,41 +105,34 @@ const SkillCard = ({ skill, index }: { skill: typeof skills[0]; index: number })
 
 const SkillsSection = () => {
     return (
-        <section id="skills" className="relative">
-            <ContainerScroll
-                expandToFitContent
-                titleComponent={
-                    <div className="flex flex-col gap-2 mb-10">
-                        <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
-                            className="text-4xl md:text-6xl font-heading font-bold gradient-text"
-                        >
-                            Technical Skills
-                        </motion.h2>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.1 }}
-                            viewport={{ once: true }}
-                            className="text-lg md:text-xl text-gray-300 font-medium max-w-2xl mx-auto"
-                        >
-                            The tools and technologies I use to bring digital ideas to life.
-                        </motion.p>
-                    </div>
-                }
-            >
-                <div className="p-4 md:p-8">
-                    {/* Skills Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        {skills.map((skill, index) => (
-                            <SkillCard key={skill.name} skill={skill} index={index} />
-                        ))}
-                    </div>
+        <section id="skills" className="relative py-16 md:py-24">
+            <div className="max-w-6xl mx-auto px-4 md:px-12">
+                <div className="flex flex-col gap-2 mb-10 text-center">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                        className="text-4xl md:text-6xl font-heading font-bold gradient-text"
+                    >
+                        Technical Skills
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        viewport={{ once: true }}
+                        className="text-lg md:text-xl text-gray-300 font-medium max-w-2xl mx-auto"
+                    >
+                        The tools and technologies I use to bring digital ideas to life.
+                    </motion.p>
                 </div>
-            </ContainerScroll>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {skills.map((skill, index) => (
+                        <SkillCard key={skill.name} skill={skill} index={index} />
+                    ))}
+                </div>
+            </div>
         </section>
     );
 };

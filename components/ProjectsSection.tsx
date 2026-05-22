@@ -6,7 +6,6 @@ import { projects } from '../data/projects';
 import Image from 'next/image';
 import { FaGithub } from 'react-icons/fa';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
-import { ContainerScroll } from './ui/container-scroll-animation';
 import { GlowingEffect } from './ui/glowing-effect';
 import { useClientTheme } from '../hooks/useClientTheme';
 
@@ -19,22 +18,17 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="relative">
-      <ContainerScroll
-        expandToFitContent
-        titleComponent={
-          <div className="flex flex-col gap-2 mb-10">
-            <h2 className="text-4xl md:text-6xl font-heading font-bold gradient-text">
-              Featured Projects
-            </h2>
-            <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">
-              A showcase of my work in AI, web development, and software engineering.
-            </p>
-          </div>
-        }
-      >
-        <div className="p-4 md:p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+    <section id="projects" className="relative py-16 md:py-24">
+      <div className="max-w-6xl mx-auto px-4 md:px-12">
+        <div className="flex flex-col gap-2 mb-10 text-center">
+          <h2 className="text-4xl md:text-6xl font-heading font-bold gradient-text">
+            Featured Projects
+          </h2>
+          <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">
+            A showcase of my work in AI, web development, and software engineering.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {projects.map((project, index) => (
               <motion.div
                 key={project.name}
@@ -122,9 +116,8 @@ const ProjectsSection = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
         </div>
-      </ContainerScroll>
+      </div>
     </section>
   );
 };

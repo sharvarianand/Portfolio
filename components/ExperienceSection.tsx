@@ -1,27 +1,23 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ContainerScroll } from './ui/container-scroll-animation';
 import { experience } from '@/data/experience';
 import { BriefcaseIcon, AcademicCapIcon } from '@heroicons/react/24/outline';
 import { GlowingEffect } from './ui/glowing-effect';
 
 const ExperienceSection = () => {
   return (
-    <section id="experience">
-      <ContainerScroll
-        titleComponent={
-          <div className="flex flex-col gap-2 mb-10">
-            <h2 className="text-4xl md:text-6xl font-heading font-bold gradient-text">
-              Professional Experience
-            </h2>
-            <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">
-              My journey through internships, bootcamps, and research presentations.
-            </p>
-          </div>
-        }
-      >
-        <div className="p-4 md:p-8 relative">
+    <section id="experience" className="py-16 md:py-24">
+      <div className="max-w-6xl mx-auto px-4 md:px-12">
+        <div className="flex flex-col gap-2 mb-10 text-center">
+          <h2 className="text-4xl md:text-6xl font-heading font-bold gradient-text">
+            Professional Experience
+          </h2>
+          <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">
+            My journey through internships, bootcamps, and research presentations.
+          </p>
+        </div>
+        <div className="relative">
           {/* Timeline Line */}
           <div className="absolute left-4 md:left-1/2 top-4 -translate-x-1/2 h-[calc(100%-2rem)] w-0.5 bg-border" />
 
@@ -59,7 +55,7 @@ const ExperienceSection = () => {
             </div>
           ))}
         </div>
-      </ContainerScroll>
+      </div>
     </section>
   );
 };

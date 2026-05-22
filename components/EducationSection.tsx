@@ -4,24 +4,20 @@ import { education } from '../data/education';
 import { motion } from 'framer-motion';
 import { AcademicCapIcon, BriefcaseIcon } from '@heroicons/react/24/solid';
 import { GlowingEffect } from './ui/glowing-effect';
-import { ContainerScroll } from './ui/container-scroll-animation';
 
 const EducationSection = () => {
   return (
-    <section id="education">
-      <ContainerScroll
-        titleComponent={
-          <div className="flex flex-col gap-2 mb-10">
-            <h2 className="text-4xl md:text-6xl font-heading font-bold gradient-text">
-              Education & Activities
-            </h2>
-            <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">
-              My academic journey and professional experiences.
-            </p>
-          </div>
-        }
-      >
-        <div className="p-4 md:p-8 relative">
+    <section id="education" className="py-16 md:py-24">
+      <div className="max-w-6xl mx-auto px-4 md:px-12">
+        <div className="flex flex-col gap-2 mb-10 text-center">
+          <h2 className="text-4xl md:text-6xl font-heading font-bold gradient-text">
+            Education & Activities
+          </h2>
+          <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">
+            My academic journey and professional experiences.
+          </p>
+        </div>
+        <div className="relative">
           {/* Timeline Line */}
           <div className="absolute left-4 md:left-1/2 top-4 -translate-x-1/2 h-[calc(100%-2rem)] w-0.5 bg-border" />
 
@@ -62,7 +58,7 @@ const EducationSection = () => {
             </div>
           ))}
         </div>
-      </ContainerScroll>
+      </div>
     </section>
   );
 };

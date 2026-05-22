@@ -5,32 +5,28 @@ import { motion } from 'framer-motion';
 import { FaCertificate } from 'react-icons/fa';
 import { GlowingEffect } from './ui/glowing-effect';
 
-import { ContainerScroll } from './ui/container-scroll-animation';
 
 const AchievementsSection = () => {
   return (
-    <section id="achievements">
-      <ContainerScroll
-        titleComponent={
-          <div className="flex flex-col gap-2 mb-10">
-            <h2 className="text-4xl md:text-6xl font-heading font-bold gradient-text">
-              Key Achievements
-            </h2>
-            <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">
-              Milestones that define my professional and academic growth.
-            </p>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 1 }}
-              className="text-sm text-primary/60 font-medium animate-pulse mt-2"
-            >
-              ( Hover over cards to reveal details )
-            </motion.p>
-          </div>
-        }
-      >
-        <div className="p-4 md:p-8">
+    <section id="achievements" className="py-16 md:py-24">
+      <div className="max-w-6xl mx-auto px-4 md:px-12">
+        <div className="flex flex-col gap-2 mb-10 text-center">
+          <h2 className="text-4xl md:text-6xl font-heading font-bold gradient-text">
+            Key Achievements
+          </h2>
+          <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">
+            Milestones that define my professional and academic growth.
+          </p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 1 }}
+            className="text-sm text-primary/60 font-medium animate-pulse mt-2"
+          >
+            ( Hover over cards to reveal details )
+          </motion.p>
+        </div>
+        <div>
           {/* Badges Container */}
           <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-16 mb-20">
             {achievements.map((item, index) => (
@@ -98,7 +94,7 @@ const AchievementsSection = () => {
             </div>
           </motion.div>
         </div>
-      </ContainerScroll>
+      </div>
     </section>
   );
 };
