@@ -65,7 +65,7 @@ const SkillCard = ({ skill, index }: { skill: typeof skills[0]; index: number })
             className="relative group cursor-pointer"
         >
             {/* Main Card */}
-            <div className="relative bg-black/80 backdrop-blur-xl p-6 rounded-2xl border-2 border-white/20 shadow-lg h-full flex flex-col">
+            <div className="relative bg-black/80 backdrop-blur-xl p-3 md:p-6 rounded-2xl border-2 border-white/20 shadow-lg h-full flex flex-col">
                 {/* GlowingEffect - same as education cards */}
                 <GlowingEffect
                     spread={35}
@@ -79,14 +79,14 @@ const SkillCard = ({ skill, index }: { skill: typeof skills[0]; index: number })
                 {/* Icon */}
                 <div className="relative z-10 mb-4 flex justify-center" style={{ transform: 'translateZ(50px)' }}>
                     <skill.icon
-                        size={56}
-                        className="text-white drop-shadow-lg transition-colors duration-300"
+                        size={40}
+                        className="text-white drop-shadow-lg transition-colors duration-300 md:!w-14 md:!h-14"
                     />
                 </div>
 
                 {/* Skill Name */}
                 <h3
-                    className="relative z-10 text-xl font-heading font-bold text-white text-center mb-2"
+                    className="relative z-10 text-sm md:text-xl font-heading font-bold text-white text-center mb-2"
                     style={{ transform: 'translateZ(50px)' }}
                 >
                     {skill.name}
@@ -127,7 +127,7 @@ const SkillsSection = () => {
                         The tools and technologies I use to bring digital ideas to life.
                     </motion.p>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
                     {skills.map((skill, index) => (
                         <SkillCard key={skill.name} skill={skill} index={index} />
                     ))}
