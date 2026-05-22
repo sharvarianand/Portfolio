@@ -4,7 +4,12 @@ const nextConfig: NextConfig = {
   // Optimize for Vercel deployment
   images: {
     unoptimized: true, // Set to false to use Vercel's image optimization
-    domains: ["images.unsplash.com"], // External hosts used by project card images
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ], // External hosts used by project card images
   },
   
   // Keep experimental features minimal for stability
