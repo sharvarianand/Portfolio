@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { FaMapMarkerAlt, FaEnvelope, FaFileAlt } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaEnvelope, FaFileAlt, FaBriefcase } from 'react-icons/fa';
 import ResumeModal from './ResumeModal';
 import { GlowingEffect } from './ui/glowing-effect';
 
@@ -43,7 +43,7 @@ const AboutSection = () => {
                 {/* Photo container */}
                 <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 hover:scale-105 hover:rotate-2 transition-all duration-300 bg-white dark:bg-slate-800">
                   <Image
-                    src="/photo.jpg"
+                    src="/photo.jpeg"
                     alt="Sharvari Bhondekar"
                     width={400}
                     height={400}
@@ -62,39 +62,47 @@ const AboutSection = () => {
             <div className="flex-1 flex flex-col gap-3 justify-center text-left">
               <div className="flex flex-col items-start mb-2">
                 <span className="text-xl font-bold text-slate-900 dark:text-white text-left">Sharvari Bhondekar <span role="img" aria-label="brain">🧠</span></span>
-                <span className="text-base font-medium text-slate-700 dark:text-slate-300 mt-1">Software Engineer | AI Enthusiast</span>
+                <span className="text-base font-medium text-slate-700 dark:text-slate-300 mt-1">AI Engineer · Full-Stack Developer · Systems Thinker</span>
               </div>
               <div className="flex flex-wrap gap-2 mb-3">
-                <span className="bg-gray-700/10 text-gray-700 dark:bg-gray-700/30 dark:text-gray-200 px-3 py-1 rounded text-sm font-semibold">Curious</span>
-                <span className="bg-gray-600/10 text-gray-600 dark:bg-gray-600/30 dark:text-gray-200 px-3 py-1 rounded text-sm font-semibold">Collaborative</span>
-                <span className="bg-gray-500/10 text-gray-500 dark:bg-gray-500/30 dark:text-gray-200 px-3 py-1 rounded text-sm font-semibold">Impact-Driven</span>
+                <span className="bg-gray-700/10 text-gray-700 dark:bg-gray-700/30 dark:text-gray-200 px-3 py-1 rounded text-sm font-semibold">AI-Native Builder</span>
+                <span className="bg-gray-600/10 text-gray-600 dark:bg-gray-600/30 dark:text-gray-200 px-3 py-1 rounded text-sm font-semibold">Systems Thinker</span>
+                <span className="bg-gray-500/10 text-gray-500 dark:bg-gray-500/30 dark:text-gray-200 px-3 py-1 rounded text-sm font-semibold">High-Execution</span>
               </div>
-              <div className="text-lg text-slate-800 dark:text-slate-200 leading-relaxed space-y-3 font-medium">
+              <div className="text-base text-slate-800 dark:text-slate-200 leading-relaxed space-y-3">
                 <p>
-                  As an engineering student specializing in Artificial Intelligence and Data Science, I&apos;m driven by a passion for leveraging technology to solve complex problems.
+                  I architect execution loops, not wrappers. My work sits at the convergence of <span className="font-semibold text-slate-900 dark:text-white">AI engineering</span>, <span className="font-semibold text-slate-900 dark:text-white">full-stack systems</span>, and <span className="font-semibold text-slate-900 dark:text-white">product architecture</span>, with a focus on AI-native platforms where intelligence is embedded into the foundation, not retrofitted.
                 </p>
                 <p>
-                  I thrive on building impactful applications that solve real-world problems and staying up-to-date with the latest advancements in AI and tech. My goal is to contribute to cutting-edge solutions that shape a better future.
+                  I engineer with React, Next.js, Node.js, Express, Supabase, PostgreSQL, and GenAI APIs, building intelligent products that extend far beyond conventional CRUD. I leverage LLMs and AI copilots as native workflow layers to accelerate iteration velocity while preserving architectural clarity.
                 </p>
               </div>
               <div className="mt-4">
-                <h4 className="font-heading text-lg font-semibold text-light-text-primary dark:text-text-primary mb-2">Core Strengths</h4>
+                <h4 className="font-heading text-sm font-semibold text-light-text-primary dark:text-text-primary mb-2 uppercase tracking-widest">Open to</h4>
                 <div className="flex flex-wrap gap-2">
-                  <span className="bg-gray-700/10 text-gray-700 dark:bg-gray-700/30 dark:text-gray-200 px-3 py-1 rounded-full text-sm font-semibold">Communication</span>
-                  <span className="bg-gray-700/10 text-gray-700 dark:bg-gray-700/30 dark:text-gray-200 px-3 py-1 rounded-full text-sm font-semibold">Leadership</span>
-                  <span className="bg-gray-700/10 text-gray-700 dark:bg-gray-700/30 dark:text-gray-200 px-3 py-1 rounded-full text-sm font-semibold">Teamwork</span>
+                  <span className="bg-gray-700/10 text-gray-700 dark:bg-gray-700/30 dark:text-gray-200 px-3 py-1 rounded-full text-sm font-semibold">Remote Internships</span>
+                  <span className="bg-gray-700/10 text-gray-700 dark:bg-gray-700/30 dark:text-gray-200 px-3 py-1 rounded-full text-sm font-semibold">Full-Time Roles</span>
+                  <span className="bg-gray-700/10 text-gray-700 dark:bg-gray-700/30 dark:text-gray-200 px-3 py-1 rounded-full text-sm font-semibold">Async-First Teams</span>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 mt-3 text-slate-700 dark:text-slate-300 text-base font-medium">
                 <div className="flex items-center gap-2 text-left text-sm md:text-base"><FaMapMarkerAlt className="text-light-text-primary dark:text-text-primary" /> Mumbai, India</div>
                 <div className="flex items-center gap-2 text-left text-sm md:text-base"><FaEnvelope className="text-light-text-primary dark:text-text-primary" /> sharvaribhondekar23@gmail.com</div>
               </div>
-              <button
-                onClick={() => setIsResumeModalOpen(true)}
-                className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-full font-heading bg-gradient-to-r from-black via-gray-800 to-gray-900 dark:from-white dark:via-gray-200 dark:to-gray-100 text-white dark:text-black shadow-lg hover:shadow-primary/50 hover:scale-105 transition-all duration-300 font-semibold self-start text-lg"
-              >
-                <FaFileAlt /> View Resume
-              </button>
+              <div className="flex flex-wrap gap-3 mt-6">
+                <a
+                  href="mailto:sharvaribhondekar23@gmail.com"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-heading bg-gradient-to-r from-black via-gray-800 to-gray-900 dark:from-white dark:via-gray-200 dark:to-gray-100 text-white dark:text-black shadow-lg hover:scale-105 transition-all duration-300 font-semibold text-base"
+                >
+                  <FaBriefcase /> Hire Me
+                </a>
+                <button
+                  onClick={() => setIsResumeModalOpen(true)}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-heading border border-slate-400 dark:border-slate-600 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300 font-semibold text-base"
+                >
+                  <FaFileAlt /> View Resume
+                </button>
+              </div>
             </div>
           </div>
         </div>

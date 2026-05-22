@@ -37,13 +37,29 @@ export const ContainerScroll = ({
     const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
     const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
+    // On mobile: skip the scroll-driven 3D effects entirely and render inline.
+    // The fixed-height scroll container on small screens wastes viewport space
+    // and makes content effectively invisible above the fold.
+    if (isMobile) {
+        return (
+            <div className="flex flex-col items-center px-4 py-8" ref={containerRef}>
+                <div className="w-full max-w-5xl mx-auto text-center mb-6">
+                    {titleComponent}
+                </div>
+                <div className="w-full max-w-5xl mx-auto rounded-2xl bg-black/50 dark:bg-zinc-900 border border-[#6C6C6C] p-3">
+                    {children}
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div
             className={cn(
                 "flex justify-center relative p-2 md:px-12",
                 expandToFitContent
                     ? "h-auto items-start md:pt-6 md:pb-10"
-                    : "h-[50rem] md:h-[65rem] items-center md:py-12",
+                    : "h-[65rem] items-center md:py-12",
             )}
             ref={containerRef}
             style={{ willChange: "transform" }}
@@ -51,7 +67,7 @@ export const ContainerScroll = ({
             <div
                 className={cn(
                     "w-full relative",
-                    expandToFitContent ? "py-4 md:py-10" : "py-8 md:py-28",
+                    expandToFitContent ? "py-10" : "py-28",
                 )}
                 style={{
                     perspective: "1000px",
